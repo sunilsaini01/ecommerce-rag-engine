@@ -1,0 +1,117 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      llm_judge:
+        description: "Run the extra LLM-as-judge metrics (costs additional Groq calls)"
+        type: boolean
+        default: false
+
+jobs:
+  # Always runs, no secrets required: validates catalog data and runs the
+  # fully-mocked unit suite (ingestion, retrieval math, cache, API, LLM
+  # retry/failure handling, LangSmith disabled-mode). See tests/.
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: pip install -r requirements-dev.txt
+
+      - name: Validate product catalog (baseline)
+        run: python -m src.ingestion.ingest --data-path data/raw/sample_products.json --catalog-version ci-baseline-39 --validate-only
+
+      - name: Validate product catalog (100-product stage, if present)
+        run: |
+          if [ -f data/raw/products_100.json ]; then
+            python -m src.ingestion.ingest --data-path data/raw/products_100.json --catalog-version ci-stage-100 --validate-only
+          else
+            echo "data/raw/products_100.json not present in this checkout — skipping."
+          fi
+
+      - name: Run unit tests
+        run: python -m pytest tests/ -v -m "not integration"
+
+      - name: Upload ingestion quality reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ingestion-reports
+          path: data/reports/ingestion_report_*.json
+          if-no-files-found: ignore
+
+  # Only runs when GROQ_API_KEY is configured as a repo/org secret — a full
+  # retrieval+generation evaluation needs a live LLM call per query. Spins
+  # up real Qdrant/Redis service containers and the actual FastAPI backend
+  # so this is a genuine end-to-end check, not a mocked one.
+  evaluate:
+    needs: test
+    runs-on: ubuntu-latest
+    if: ${{ secrets.GROQ_API_KEY != '' }}
+    services:
+      qdrant:
+        image: qdrant/qdrant:latest
+        ports: ["6333:6333", "6334:6334"]
+      redis:
+        image: redis:7-alpine
+        ports: ["6379:6379"]
+    env:
+      QDRANT_HOST: localhost
+      REDIS_HOST: localhost
+      GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+      CATALOG_VERSION: ci-stage-100
+      LANGSMITH_TRACING: "false"
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: pip install -r requirements-dev.txt
+
+      - name: Ingest 100-product catalog
+        run: python -m src.ingestion.ingest --data-path data/raw/products_100.json --catalog-version ci-stage-100 --recreate
+
+      - name: Start backend
+        run: |
+          nohup uvicorn src.backend.main:app --host 0.0.0.0 --port 8000 > backend.log 2>&1 &
+          for i in $(seq 1 30); do
+            curl -sf http://localhost:8000/docs > /dev/null && break
+            sleep 2
+          done
+
+      - name: Run legacy evaluation (backward compatibility)
+        run: python src/evaluation/eval.py
+
+      - name: Run extended evaluation gate (Recall@K, MRR, NDCG, refusal_correct, faithfulness_lexical)
+        run: |
+          python src/evaluation/eval_v2.py \
+            --ground-truth src/evaluation/ground_truth_100.json \
+            --catalog-version ci-stage-100 \
+            --gate \
+            ${{ (inputs.llm_judge && '--llm-judge') || '' }}
+
+      - name: Show backend log on failure
+        if: failure()
+        run: cat backend.log
+
+      - name: Upload evaluation reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: eval-reports
+          path: data/reports/eval_report_*.json
+          if-no-files-found: ignore
