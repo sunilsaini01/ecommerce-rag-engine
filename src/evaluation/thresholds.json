@@ -1,0 +1,23 @@
+{
+  "_comment": "CI/CD quality gate thresholds for eval_v2.py. Each value is documented, not arbitrary.",
+  "recall_at_k": {
+    "value": 0.70,
+    "reason": "Matches the original eval.py Hit-Rate@5 gate (0.70), carried forward as the recall floor for the 100-product catalog baseline recorded in README. Averaged only over cases with a non-empty expected_product_ids (negative/adversarial cases are excluded, not zero-filled — see refusal_correct for those)."
+  },
+  "mrr": {
+    "value": 0.55,
+    "reason": "Requires the correct product to typically land at or near rank 1-2 on average (1/0.55 ~= rank 1.8), reasonable for a catalog with several near-duplicate product families."
+  },
+  "hit_rate_at_k": {
+    "value": 0.70,
+    "reason": "Preserves the original eval.py gate value so the CI bar does not silently loosen when eval_v2 replaces it. Same non-empty-expected scoping as recall_at_k."
+  },
+  "refusal_correct": {
+    "value": 0.75,
+    "reason": "For negative/adversarial cases (no matching product should be returned), the system must actually say so rather than hallucinate a product. 0.75 tolerates occasional LLM phrasing drift without masking a real regression."
+  },
+  "faithfulness_lexical": {
+    "value": 0.40,
+    "reason": "Intentionally lenient — this is a keyword-overlap heuristic (see README's 'lexical heuristic vs semantic evaluation' distinction), not true faithfulness. A paraphrased-but-correct answer can legitimately score low here, so it is a floor against obvious drift, not a quality target."
+  }
+}
