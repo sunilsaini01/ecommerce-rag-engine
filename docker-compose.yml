@@ -1,0 +1,76 @@
+services:
+  qdrant:
+    image: qdrant/qdrant:latest
+    container_name: qdrant_local
+    ports:
+      - "6333:6333"
+      - "6334:6334"
+    volumes:
+      - ./database/qdrant_storage:/qdrant/storage
+    restart: unless-stopped
+    networks:
+      - ecommerce-net
+
+  redis:
+    image: redis:7-alpine
+    container_name: redis_local
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./database/cache_storage:/data
+    restart: unless-stopped
+    networks:
+      - ecommerce-net
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    container_name: backend_local
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data:ro
+    environment:
+      - QDRANT_HOST=qdrant
+      - QDRANT_GRPC_PORT=6334
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - COLLECTION_NAME=ecommerce_products
+      - GROQ_API_KEY=${GROQ_API_KEY}
+      - API_KEY=${API_KEY:-}
+      - RATE_LIMIT_PER_MINUTE=${RATE_LIMIT_PER_MINUTE:-30}
+      - ENVIRONMENT=${ENVIRONMENT:-docker}
+      - CATALOG_VERSION=${CATALOG_VERSION:-baseline-39}
+      - PROMPT_VERSION=${PROMPT_VERSION:-v1}
+      - MODEL_VERSION=${MODEL_VERSION:-llama-3.1-8b-instant}
+      - LANGSMITH_TRACING=${LANGSMITH_TRACING:-false}
+      - LANGSMITH_API_KEY=${LANGSMITH_API_KEY:-}
+      - LANGSMITH_PROJECT=${LANGSMITH_PROJECT:-ecommerce-rag-engine}
+      - LANGSMITH_ENDPOINT=${LANGSMITH_ENDPOINT:-https://api.smith.langchain.com}
+    depends_on:
+      - qdrant
+      - redis
+    restart: unless-stopped
+    networks:
+      - ecommerce-net
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    container_name: frontend_local
+    ports:
+      - "8501:8501"
+    environment:
+      - BACKEND_URL=http://backend:8000
+      - BACKEND_API_KEY=${API_KEY:-}
+    depends_on:
+      - backend
+    restart: unless-stopped
+    networks:
+      - ecommerce-net
+
+networks:
+  ecommerce-net:
+    driver: bridge
