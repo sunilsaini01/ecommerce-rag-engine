@@ -1,0 +1,1800 @@
+[
+  {
+    "id": 101,
+    "title": "Rugged Camping Backpack",
+    "description": "Heavy duty waterproof bag designed for multi-day mountain hiking trails. Includes hydration compartment and multiple zip pockets.",
+    "price": 45.99,
+    "category": "Outdoor Gear"
+  },
+  {
+    "id": 103,
+    "title": "Wireless Charging Pad",
+    "description": "10W fast wireless charger compatible with all Qi-enabled devices. Slim design with LED indicator and anti-slip surface.",
+    "price": 19.99,
+    "category": "Electronics"
+  },
+  {
+    "id": 104,
+    "title": "Noise Cancelling Bluetooth Headphones",
+    "description": "Over-ear headphones with active noise cancellation, 30-hour battery life, and premium sound drivers. Foldable design for travel.",
+    "price": 89.99,
+    "category": "Electronics"
+  },
+  {
+    "id": 105,
+    "title": "Mechanical Gaming Keyboard",
+    "description": "TKL layout mechanical keyboard with Cherry MX Red switches, RGB backlighting, and aluminum top plate. Anti-ghosting for competitive gaming.",
+    "price": 74.99,
+    "category": "Electronics"
+  },
+  {
+    "id": 106,
+    "title": "4K Webcam with Ring Light",
+    "description": "Ultra HD webcam with built-in ring light, autofocus, and dual microphone noise reduction. Ideal for streaming and video conferencing.",
+    "price": 59.99,
+    "category": "Electronics"
+  },
+  {
+    "id": 107,
+    "title": "Portable Solar Power Bank",
+    "description": "20000mAh solar-powered battery bank with dual USB output and USB-C fast charging. Waterproof casing for outdoor adventures.",
+    "price": 39.99,
+    "category": "Electronics"
+  },
+  {
+    "id": 108,
+    "title": "Trail Running Shoes",
+    "description": "Lightweight trail running shoes with aggressive rubber outsole, cushioned midsole, and breathable mesh upper. Designed for rugged terrain.",
+    "price": 110.0,
+    "category": "Footwear"
+  },
+  {
+    "id": 109,
+    "title": "Waterproof Hiking Boots",
+    "description": "Full-grain leather hiking boots with Gore-Tex waterproof membrane, ankle support, and Vibram outsole. Suitable for all-day trekking.",
+    "price": 149.99,
+    "category": "Footwear"
+  },
+  {
+    "id": 110,
+    "title": "Running Compression Socks",
+    "description": "Graduated compression socks for improved circulation during long runs. Moisture-wicking fabric with arch support and blister protection.",
+    "price": 14.99,
+    "category": "Footwear"
+  },
+  {
+    "id": 111,
+    "title": "Insulated Stainless Steel Water Bottle",
+    "description": "32oz double-wall vacuum insulated bottle keeps drinks cold 24 hours and hot 12 hours. BPA-free with leak-proof lid.",
+    "price": 29.99,
+    "category": "Outdoor Gear"
+  },
+  {
+    "id": 112,
+    "title": "Lightweight Camping Tent",
+    "description": "2-person backpacking tent weighing only 2.3kg. Easy setup with aluminium poles, rainfly, and mesh inner for ventilation.",
+    "price": 129.99,
+    "category": "Outdoor Gear"
+  },
+  {
+    "id": 113,
+    "title": "Trekking Poles Set",
+    "description": "Collapsible aluminium trekking poles with cork handles, wrist straps, and interchangeable tips for different terrain types.",
+    "price": 49.99,
+    "category": "Outdoor Gear"
+  },
+  {
+    "id": 114,
+    "title": "Sleeping Bag 0 Degree Rating",
+    "description": "Mummy-style sleeping bag rated to 0\u00c2\u00b0C with 650-fill goose down insulation. Compression sack included. Weighs 900g.",
+    "price": 159.99,
+    "category": "Outdoor Gear"
+  },
+  {
+    "id": 115,
+    "title": "Yoga Mat with Alignment Lines",
+    "description": "6mm thick non-slip yoga mat with printed alignment lines for proper posture. Made from eco-friendly TPE material. Includes carry strap.",
+    "price": 34.99,
+    "category": "Sports & Fitness"
+  },
+  {
+    "id": 116,
+    "title": "Adjustable Dumbbell Set",
+    "description": "Space-saving adjustable dumbbells ranging from 2.5kg to 25kg per hand. Quick-change dial mechanism with durable steel construction.",
+    "price": 249.99,
+    "category": "Sports & Fitness"
+  },
+  {
+    "id": 117,
+    "title": "Resistance Bands Set",
+    "description": "Set of 5 resistance bands with varying tension levels from 5 to 50 lbs. Includes door anchor, ankle straps, and carry bag.",
+    "price": 24.99,
+    "category": "Sports & Fitness"
+  },
+  {
+    "id": 118,
+    "title": "Foam Roller for Muscle Recovery",
+    "description": "High-density EVA foam roller for deep tissue massage and myofascial release. Textured surface targets trigger points effectively.",
+    "price": 19.99,
+    "category": "Sports & Fitness"
+  },
+  {
+    "id": 119,
+    "title": "Smart Fitness Tracker Band",
+    "description": "Fitness band with heart rate monitor, sleep tracking, SpO2 sensor, and 7-day battery life. Water-resistant to 50m with AMOLED display.",
+    "price": 49.99,
+    "category": "Electronics"
+  },
+  {
+    "id": 120,
+    "title": "Men's Merino Wool Base Layer",
+    "description": "Lightweight 150gsm merino wool long-sleeve top with odour resistance and natural temperature regulation. Ideal for hiking and skiing.",
+    "price": 64.99,
+    "category": "Clothing"
+  },
+  {
+    "id": 121,
+    "title": "Women's Waterproof Shell Jacket",
+    "description": "3-layer waterproof and windproof shell jacket with sealed seams, pit zips, and helmet-compatible hood. Packable into chest pocket.",
+    "price": 189.99,
+    "category": "Clothing"
+  },
+  {
+    "id": 122,
+    "title": "Fleece Midlayer Pullover",
+    "description": "300-weight fleece pullover with half-zip collar and kangaroo pocket. Warm, breathable, and quick-drying for cold weather layering.",
+    "price": 54.99,
+    "category": "Clothing"
+  },
+  {
+    "id": 123,
+    "title": "Convertible Hiking Pants",
+    "description": "Zip-off hiking pants with UPF 50+ sun protection, multiple cargo pockets, and articulated knees. Quick-dry nylon fabric.",
+    "price": 59.99,
+    "category": "Clothing"
+  },
+  {
+    "id": 124,
+    "title": "Thermal Beanie Hat",
+    "description": "Windproof thermal beanie with fleece lining and reflective logo. Stretchy one-size-fits-all design for winter outdoor activities.",
+    "price": 19.99,
+    "category": "Clothing"
+  },
+  {
+    "id": 125,
+    "title": "Air Purifier HEPA Filter",
+    "description": "True HEPA air purifier covering up to 500 sq ft. Removes 99.97% of airborne particles including dust, pollen, and pet dander.",
+    "price": 99.99,
+    "category": "Home Appliances"
+  },
+  {
+    "id": 126,
+    "title": "Robot Vacuum Cleaner",
+    "description": "Smart robot vacuum with LiDAR mapping, 2500Pa suction, and automatic dirt disposal. Compatible with Alexa and Google Home.",
+    "price": 299.99,
+    "category": "Home Appliances"
+  },
+  {
+    "id": 127,
+    "title": "Portable Blender Bottle",
+    "description": "USB rechargeable personal blender with 400ml BPA-free bottle. 6 stainless steel blades for smoothies and protein shakes on the go.",
+    "price": 29.99,
+    "category": "Home Appliances"
+  },
+  {
+    "id": 128,
+    "title": "Electric Kettle 1.7L",
+    "description": "1500W electric kettle with temperature control settings for different beverages. Keep-warm function and boil-dry protection. BPA-free.",
+    "price": 44.99,
+    "category": "Home Appliances"
+  },
+  {
+    "id": 129,
+    "title": "Standing Desk Converter",
+    "description": "Height-adjustable desk riser with dual monitor support and keyboard tray. Smooth gas spring lift mechanism. Holds up to 15kg.",
+    "price": 119.99,
+    "category": "Home Office"
+  },
+  {
+    "id": 130,
+    "title": "Ergonomic Lumbar Support Cushion",
+    "description": "Memory foam lumbar cushion with adjustable strap for office chairs and car seats. Promotes correct spinal alignment during long sitting sessions.",
+    "price": 34.99,
+    "category": "Home Office"
+  },
+  {
+    "id": 131,
+    "title": "USB-C 7-in-1 Hub",
+    "description": "Compact USB-C hub with 4K HDMI, 100W PD charging, 3x USB-A 3.0, SD and microSD card reader. Aluminium shell with braided cable.",
+    "price": 39.99,
+    "category": "Electronics"
+  },
+  {
+    "id": 132,
+    "title": "Blue Light Blocking Glasses",
+    "description": "Anti blue light glasses with CR39 lenses and lightweight TR90 frame. Reduces eye strain and improves sleep quality for screen users.",
+    "price": 24.99,
+    "category": "Home Office"
+  },
+  {
+    "id": 133,
+    "title": "Whey Protein Powder Chocolate",
+    "description": "25g protein per serving whey concentrate powder for muscle building and recovery. Chocolate flavour, low sugar, no artificial colours. 1kg tub with 33 servings.",
+    "price": 39.99,
+    "category": "Nutrition"
+  },
+  {
+    "id": 134,
+    "title": "Creatine Monohydrate Powder",
+    "description": "Unflavoured micronised creatine monohydrate for strength, power output, and muscle building. 3g per serving, 100 servings per 300g container.",
+    "price": 19.99,
+    "category": "Nutrition"
+  },
+  {
+    "id": 135,
+    "title": "Electrolyte Hydration Tablets",
+    "description": "Zero-calorie effervescent electrolyte tablets with sodium, potassium, and magnesium. 20 tablets per tube, tropical flavour.",
+    "price": 9.99,
+    "category": "Nutrition"
+  },
+  {
+    "id": 136,
+    "title": "Camping Headlamp 350 Lumens",
+    "description": "Rechargeable LED headlamp with 350 lumen output, red night vision mode, and IPX4 water resistance. Runtime up to 10 hours.",
+    "price": 34.99,
+    "category": "Outdoor Gear"
+  },
+  {
+    "id": 137,
+    "title": "Pocket Knife Multitool",
+    "description": "Stainless steel multitool with 12 functions including knife, pliers, screwdriver, bottle opener, and saw. Nylon belt pouch included.",
+    "price": 27.99,
+    "category": "Outdoor Gear"
+  },
+  {
+    "id": 138,
+    "title": "Swim Goggles Anti-Fog",
+    "description": "Competition swimming goggles with anti-fog UV-protected lenses, adjustable nose bridge, and silicone gaskets for watertight seal.",
+    "price": 17.99,
+    "category": "Sports & Fitness"
+  },
+  {
+    "id": 139,
+    "title": "Jump Rope Speed Cable",
+    "description": "Aluminium handle speed jump rope with adjustable 3m steel cable. Ball bearing system for smooth rotation. Ideal for cardio and CrossFit.",
+    "price": 14.99,
+    "category": "Sports & Fitness"
+  },
+  {
+    "id": 140,
+    "title": "Laptop Sleeve 15 Inch",
+    "description": "Water-resistant neoprene laptop sleeve with accessory pocket and handle. Fits laptops up to 15.6 inches. Available in multiple colours.",
+    "price": 19.99,
+    "category": "Home Office"
+  },
+  {
+    "id": "200",
+    "title": "Noise Cancelling Headphones Pro",
+    "description": "Aurelia over-ear headphones with adaptive active noise cancellation, 40h battery life, and 40mm dynamic drivers. Multipoint Bluetooth 5.3 pairing with two devices at once.",
+    "price": 199.99,
+    "category": "Electronics",
+    "brand": "Aurelia",
+    "rating": 4.6,
+    "review_count": 105,
+    "stock": 5,
+    "features": [
+      "adaptive ANC",
+      "multipoint pairing",
+      "40h battery"
+    ],
+    "tags": [
+      "electronics",
+      "adaptive_ANC",
+      "multipoint_pairing"
+    ],
+    "availability": "in_stock",
+    "metadata": {
+      "family": "Noise Cancelling Headphones"
+    }
+  },
+  {
+    "id": "201",
+    "title": "Noise Cancelling Headphones Lite",
+    "description": "Aurelia over-ear headphones with hybrid active noise cancellation, 30h battery life, and 35mm dynamic drivers. Foldable design with a hard travel case included.",
+    "price": 89.99,
+    "category": "Electronics",
+    "brand": "Aurelia",
+    "rating": 4.2,
+    "review_count": 1006,
+    "stock": 25,
+    "features": [
+      "hybrid ANC",
+      "foldable",
+      "travel case"
+    ],
+    "tags": [
+      "electronics",
+      "hybrid_ANC",
+      "foldable"
+    ],
+    "availability": "in_stock",
+    "metadata": {
+      "family": "Noise Cancelling Headphones"
+    }
+  },
+  {
+    "id": "202",
+    "title": "Noise Cancelling Headphones Sport",
+    "description": "Kinetic over-ear headphones with hybrid active noise cancellation, 22h battery life, and 38mm dynamic drivers. IPX4 sweat resistance rated for workouts.",
+    "price": 129.99,
+    "category": "Electronics",
+    "brand": "Kinetic",
+    "rating": 4.3,
+    "review_count": 574,
+    "stock": 18,
+    "features": [
+      "IPX4",
+      "workout fit",
+      "hybrid ANC"
+    ],
+    "tags": [
+      "electronics",
+      "IPX4",
+      "workout_fit"
+    ],
+    "availability": "in_stock",
+    "metadata": {
+      "family": "Noise Cancelling Headphones"
+    }
+  },
+  {
+    "id": "203",
+    "title": "True Wireless Earbuds Air",
+    "description": "Kinetic true wireless earbuds with 6h battery (24h with case), passive noise cancellation, and touch controls. Wireless charging case, IPX4 rated.",
+    "price": 79.99,
+    "category": "Electronics",
+    "brand": "Kinetic",
+    "rating": 4.1,
+    "review_count": 2236,
+    "stock": 5,
+    "features": [
+      "wireless charging",
+      "IPX4",
+      "touch controls"
+    ],
+    "tags": [
+      "electronics",
+      "wireless_charging",
+      "IPX4"
+    ],
+    "availability": "in_stock",
+    "metadata": {
+      "family": "True Wireless Earbuds"
+    }
+  },
+  {
+    "id": "204",
+    "title": "True Wireless Earbuds Max",
+    "description": "Aurelia true wireless earbuds with 8h battery (32h with case), active noise cancellation, and touch controls. Custom EQ via companion app and transparency mode.",
+    "price": 149.99,
+    "category": "Electronics",
+    "brand": "Aurelia",
+    "rating": 4.5,
+    "review_count": 1731,
+    "stock": 5,
+    "features": [
+      "active ANC",
+      "transparency mode",
+      "app EQ"
+    ],
+    "tags": [
+      "electronics",
+      "active_ANC",
+      "transparency_mode"
+    ],
+    "availability": "in_stock",
+    "metadata": {
+      "family": "True Wireless Earbuds"
+    }
+  },
+  {
+    "id": "205",
+    "title": "Bluetooth Speaker Mini",
+    "description": "Wavefront portable Bluetooth speaker rated IPX5, 10h playtime, 10W output. Pocket-sized with a carabiner clip.",
+    "price": 39.99,
+    "category": "Electronics",
+    "brand": "Wavefront",
+    "rating": 4.0,
+    "review_count": 125,
+    "stock": 0,
+    "features": [
+      "IPX5",
+      "carabiner clip",
+      "compact"
+    ],
+    "tags": [
+      "electronics",
+      "IPX5",
+      "carabiner_clip"
+    ],
+    "availability": "out_of_stock",
+    "metadata": {
+      "family": "Bluetooth Speaker"
+    }
+  },
+  {
+    "id": "206",
+    "title": "Bluetooth Speaker Boom",
+    "description": "Wavefront portable Bluetooth speaker rated IP67, 20h playtime, 30W output. Pair two units together for stereo sound.",
+    "price": 99.99,
+    "category": "Electronics",
+    "brand": "Wavefront",
+    "rating": 4.4,
+    "review_count": 898,
+    "stock": 5,
+    "features": [
+      "IP67",
+      "stereo pairing",
+      "30W output"
+    ],
+    "tags": [
+      "electronics",
+      "IP67",
+      "stereo_pairing"
+    ],
+    "availability": "in_stock",
+    "metadata": {
+      "family": "Bluetooth Speaker"
+    }
+  },
+  {
+    "id": "207",
+    "title": "Smart Watch SE",
+    "description": "Pulseline smart watch with 1.3\" AMOLED display, 5-day battery life, GPS, and heart-rate + SpO2 monitoring. 50m water resistance, 20+ workout modes.",
+    "price": 149.99,
+    "category": "Electronics",
+    "brand": "Pulseline",
+    "rating": 4.2,
+    "review_count": 2072,
+    "stock": 18,
+    "features": [
+      "AMOLED",
+      "GPS",
+      "50m water resistance"
+    ],
+    "tags": [
+      "electronics",
+      "AMOLED",
+      "GPS"
+    ],
+    "availability": "in_stock",
+    "metadata": {
+      "family": "Smart Watch"
+    }
+  },
+  {
+    "id": "208",
+    "title": "Smart Watch Ultra",
+    "description": "Pulseline smart watch with 1.5\" AMOLED display, 9-day battery life, GPS, and heart-rate + SpO2 monitoring. Titanium case with sapphire crystal glass.",
+    "price": 249.99,
+    "category": "Electronics",
+    "brand": "Pulseline",
+    "rating": 4.6,
+    "review_count": 2301,
+    "stock": 0,
+    "features": [
+      "titanium case",
+      "sapphire glass",
+      "9-day battery"
+    ],
+    "tags": [
+      "electronics",
+      "titanium_case",
+      "sapphire_glass"
+    ],
+    "availability": "out_of_stock",
+    "metadata": {
+      "family": "Smart Watch"
+    }
+  },
+  {
+    "id": "209",
+    "title": "Portable SSD 1TB",
+    "description": "Databrick 1TB portable SSD, USB-C 10Gbps transfer speed, shock-resistant aluminium housing. IP55 dust and water resistance.",
+    "price": 89.99,
+    "category": "Electronics",
+    "brand": "Databrick",
+    "rating": 4.5,
+    "review_count": 2235,
+    "stock": 18,
+    "features": [
+      "IP55",
+      "10Gbps",
+      "aluminium housing"
+    ],
+    "tags": [
+      "electronics",
+      "IP55",
+      "10Gbps"
+    ],
+    "availability": "in_stock",
+    "metadata": {
+      "family": "Portable SSD"
+    }
+  },
+  {
+    "id": "210",
+    "title": "Portable SSD 2TB",
+    "description": "Databrick 2TB portable SSD, USB-C 20Gbps transfer speed, shock-resistant aluminium housing. USB4 compatible for next-gen laptop transfer speeds.",
+    "price": 149.99,
+    "category": "Electronics",
+    "brand": "Databrick",
+    "rating": 4.6,
+    "review_count": 905,
+    "stock": 60,
+    "features": [
+      "IP55",
+      "20Gbps",
+      "USB4 compatible"
+    ],
+    "tags": [
+      "electronics",
+      "IP55",
+      "20Gbps"
+    ],
+    "availability": "in_stock",
+    "metadata": {
+      "family": "Portable SSD"
+    }
+  },
+  {
+    "id": "211",
+    "title": "Wireless Gaming Mouse",
+    "description": "Kinetic wireless gaming mouse with 26,000 DPI optical sensor, 70h battery, and low-latency 2.4GHz receiver. Six programmable buttons with onboard memory.",
+    "price": 59.99,
+    "category": "Electronics",
+    "brand": "Kinetic",
+    "rating": 4.4,
+    "review_count": 1142,
+    "stock": 100,
+    "features": [
+      "26000 DPI",
+      "programmable buttons",
+      "70h battery"
+    ],
+    "tags": [
+      "electronics",
+      "26000_DPI",
+      "programmable_buttons"
+    ],
+    "availability": "in_stock",
+    "metadata": {
+      "family": "Wireless Gaming Mouse"
+    }
+  },
+  {
+    "id": "212",
+    "title": "27-Inch 4K Monitor",
+    "description": "Visiora 27-inch 4K IPS monitor, 60Hz refresh rate, 98% DCI-P3 color gamut, USB-C 65W power delivery. Height-adjustable stand with 90-degree pivot.",
+    "price": 379.99,
+    "category": "Electronics",
+    "brand": "Visiora",
+    "rating": 4.5,
+    "review_count": 656,
+    "stock": 0,
+    "features": [
+      "4K IPS",
+      "USB-C PD",
+      "pivot stand"
+    ],
+    "tags": [
+      "electronics",
+      "4K_IPS",
+      "USB-C_PD"
+    ],
+    "availability": "out_of_stock",
+    "metadata": {
+      "family": "27-Inch 4K Monitor"
+    }
+  },
+  {
+    "id": "213",
+    "title": "USB Condenser Microphone",
+    "description": "Wavefront USB condenser microphone with cardioid pickup pattern, 48kHz sample rate, built-in pop filter and shock mount. Zero-latency headphone monitoring jack.",
+    "price": 69.99,
+    "category": "Electronics",
+    "brand": "Wavefront",
+    "rating": 4.3,
+    "review_count": 1396,
+    "stock": 60,
+    "features": [
+      "cardioid",
+      "48kHz",
+      "shock mount"
+    ],
+    "tags": [
+      "electronics",
+      "cardioid",
+      "48kHz"
+    ],
+    "availability": "in_stock",
+    "metadata": {
+      "family": "USB Condenser Microphone"
+    }
+  },
+  {
+    "id": "214",
+    "title": "Hiking Backpack 35L",
+    "description": "Summit Ridge 35L hiking backpack with water-resistant coating, adjustable torso fit, and hydration bladder compartment. Ideal for day hikes and overnight trips.",
+    "price": 79.99,
+    "category": "Outdoor Gear",
+    "brand": "Summit Ridge",
+    "rating": 4.3,
+    "review_count": 639,
+    "stock": 25,
+    "features": [
+      "35L",
+      "hydration compatible",
+      "water-resistant"
+    ],
+    "tags": [
+      "outdoor_gear",
+      "35L",
+      "hydration_compatible"
+    ],
+    "availability": "in_stock",
+    "metadata": {
+      "family": "Hiking Backpack"
+    }
+  },
+  {
+    "id": "215",
+    "title": "Hiking Backpack 55L",
+    "description": "Summit Ridge 55L hiking backpack with fully waterproof rainfly included, adjustable torso fit, and hydration bladder compartment. Internal frame for multi-day backcountry trips.",
+    "price": 139.99,
+    "category": "Outdoor Gear",
+    "brand": "Summit Ridge",
+    "rating": 4.5,
+    "review_count": 1381,
+    "stock": 18,
+    "features": [
+      "55L",
+      "internal frame",
+      "rainfly included"
+    ],
+    "tags": [
+      "outdoor_gear",
+      "55L",
+      "internal_frame"
+    ],
+    "availability": "in_stock",
+    "metadata": {
+      "family": "Hiking Backpack"
+    }
+  },
+  {
+    "id": "216",
+    "title": "4-Person Camping Tent",
+    "description": "Trailhead 4-person dome tent, 3-season rated, aluminium pole frame, double-layer rainfly. Two doors, two vestibules for gear storage.",
+    "price": 189.99,
+    "category": "Outdoor Gear",
+    "brand": "Trailhead",
+    "rating": 4.4,
+    "review_count": 382,
+    "stock": 5,
+    "features": [
+      "4-person",
+      "3-season",
+      "two vestibules"
+    ],
+    "tags": [
+      "outdoor_gear",
+      "4-person",
+      "3-season"
+    ],
+    "availability": "in_stock",
+    "metadata": {
+      "family": "4-Person Camping Tent"
+    }
+  },
+  {
+    "id": "217",
+    "title": "Portable Camping Stove",
+    "description": "Trailhead compact butane camping stove with piezo ignition, 2.7kW output, wind-resistant burner head. Folds flat into included carry case.",
+    "price": 34.99,
+    "category": "Outdoor Gear",
+    "brand": "Trailhead",
+    "rating": 4.1,
+    "review_count": 399,
+    "stock": 60,
+    "features": [
+      "piezo ignition",
+      "wind-resistant",
+      "compact"
+    ],
+    "tags": [
+      "outdoor_gear",
+      "piezo_ignition",
+      "wind-resistant"
+    ],
+    "availability": "in_stock",
+    "metadata": {
+      "family": "Portable Camping Stove"
+    }
+  },
+  {
+    "id": "218",
+    "title": "Camping Hammock with Straps",
+    "description": "Trailhead parachute nylon camping hammock rated to 200kg, includes tree-friendly straps and carabiners. Packs down to the size of a water bottle.",
+    "price": 44.99,
+    "category": "Outdoor Gear",
+    "brand": "Trailhead",
+    "rating": 4.2,
+    "review_count": 1411,
+    "stock": 40,
+    "features": [
+      "parachute nylon",
+      "tree straps included",
+      "packable"
+    ],
+    "tags": [
+      "outdoor_gear",
+      "parachute_nylon",
+      "tree_straps_included"
+    ],
+    "availability": "in_stock",
+    "metadata": {
+      "family": "Camping Hammock with Straps"
+    }
+  },
+  {
+    "id": "219",
+    "title": "Road Running Shoes Cloud",
+    "description": "Stridewell road running shoes with max cushioning, breathable mesh upper, and 8mm heel-to-toe drop. Designed for long-distance comfort.",
+    "price": 119.99,
+    "category": "Footwear",
+    "brand": "Stridewell",
+    "rating": 4.5,
+    "review_count": 180,
+    "stock": 25,
+    "features": [
+      "max cushioning",
+      "breathable mesh",
+      "8mm drop"
+    ],
+    "tags": [
+      "footwear",
+      "max_cushioning",
+      "breathable_mesh"
+    ],
+    "availability": "in_stock",
+    "metadata": {
+      "family": "Road Running Shoes"
+    }
+  },
+  {
+    "id": "220",
+    "title": "Road Running Shoes Race",
+    "description": "Stridewell road running shoes with responsive cushioning, breathable mesh upper, and 4mm heel-to-toe drop. Carbon-infused plate for a propulsive toe-off.",
+    "price": 149.99,
+    "category": "Footwear",
+    "brand": "Stridewell",
+    "rating": 4.6,
+    "review_count": 2199,
+    "stock": 100,
+    "features": [
+      "carbon plate",
+      "responsive cushioning",
+      "lightweight"
+    ],
+    "tags": [
+      "footwear",
+      "carbon_plate",
+      "responsive_cushioning"
+    ],
+    "availability": "in_stock",
+    "metadata": {
+      "family": "Road Running Shoes"
+    }
+  },
+  {
+    "id": "221",
+    "title": "Hiking Sandals",
+    "description": "Summit Ridge hiking sandals with contoured EVA footbed, adjustable quick-lace straps, and grippy rubber outsole. Quick-drying straps suited to river crossings.",
+    "price": 54.99,
+    "category": "Footwear",
+    "brand": "Summit Ridge",
+    "rating": 4.2,
+    "review_count": 1553,
+    "stock": 5,
+    "features": [
+      "quick-dry",
+      "EVA footbed",
+      "grippy outsole"
+    ],
+    "tags": [
+      "footwear",
+      "quick-dry",
+      "EVA_footbed"
+    ],
+    "availability": "in_stock",
+    "metadata": {
+      "family": "Hiking Sandals"
+    }
+  },
+  {
+    "id": "222",
+    "title": "Insulated Winter Snow Boots",
+    "description": "Summit Ridge insulated snow boots rated to -32C, waterproof upper, and thermal-reflective lining. High-traction lugged outsole for icy surfaces.",
+    "price": 99.99,
+    "category": "Footwear",
+    "brand": "Summit Ridge",
+    "rating": 4.4,
+    "review_count": 2264,
+    "stock": 5,
+    "features": [
+      "waterproof",
+      "thermal lining",
+      "-32C rated"
+    ],
+    "tags": [
+      "footwear",
+      "waterproof",
+      "thermal_lining"
+    ],
+    "availability": "in_stock",
+    "metadata": {
+      "family": "Insulated Winter Snow Boots"
+    }
+  },
+  {
+    "id": "223",
+    "title": "Cast Iron Kettlebell Set",
+    "description": "Ironcore cast iron kettlebell set (5kg/10kg/15kg), wide handle for two-hand grip, flat base for stable storage. Powder-coated finish resists chipping.",
+    "price": 89.99,
+    "category": "Sports & Fitness",
+    "brand": "Ironcore",
+    "rating": 4.5,
+    "review_count": 1484,
+    "stock": 25,
+    "features": [
+      "cast iron",
+      "3-piece set",
+      "powder coated"
+    ],
+    "tags": [
+      "sports_fitness",
+      "cast_iron",
+      "3-piece_set"
+    ],
+    "availability": "in_stock",
+    "metadata": {
+      "family": "Cast Iron Kettlebell Set"
+    }
+  },
+  {
+    "id": "224",
+    "title": "Doorway Pull-Up Bar",
+    "description": "Ironcore no-screw doorway pull-up bar, supports up to 135kg, multi-grip design for wide/narrow/neutral grip. Fits doorframes 65-80cm wide, no drilling required.",
+    "price": 29.99,
+    "category": "Sports & Fitness",
+    "brand": "Ironcore",
+    "rating": 4.1,
+    "review_count": 287,
+    "stock": 18,
+    "features": [
+      "no-drill",
+      "multi-grip",
+      "135kg capacity"
+    ],
+    "tags": [
+      "sports_fitness",
+      "no-drill",
+      "multi-grip"
+    ],
+    "availability": "in_stock",
+    "metadata": {
+      "family": "Doorway Pull-Up Bar"
+    }
+  },
+  {
+    "id": "225",
+    "title": "Folding Exercise Bike",
+    "description": "Ironcore magnetic resistance exercise bike with 8 resistance levels, foldable frame, and LCD tracking display. Tracks time, speed, distance, and calories burned.",
+    "price": 219.99,
+    "category": "Sports & Fitness",
+    "brand": "Ironcore",
+    "rating": 4.0,
+    "review_count": 936,
+    "stock": 0,
+    "features": [
+      "foldable",
+      "8 resistance levels",
+      "LCD display"
+    ],
+    "tags": [
+      "sports_fitness",
+      "foldable",
+      "8_resistance_levels"
+    ],
+    "availability": "out_of_stock",
+    "metadata": {
+      "family": "Folding Exercise Bike"
+    }
+  },
+  {
+    "id": "226",
+    "title": "Packable Rain Jacket Men's",
+    "description": "Northfield packable rain jacket, 10,000mm rating, taped seams, packs into its own chest pocket. Adjustable hood and elasticated cuffs.",
+    "price": 79.99,
+    "category": "Clothing",
+    "brand": "Northfield",
+    "rating": 4.2,
+    "review_count": 329,
+    "stock": 25,
+    "features": [
+      "packable",
+      "taped seams",
+      "10000mm rating"
+    ],
+    "tags": [
+      "clothing",
+      "packable",
+      "taped_seams"
+    ],
+    "availability": "in_stock",
+    "metadata": {
+      "family": "Packable Rain Jacket"
+    }
+  },
+  {
+    "id": "227",
+    "title": "Packable Rain Jacket Women's",
+    "description": "Northfield packable rain jacket, 10,000mm rating, taped seams, packs into its own chest pocket. Tailored fit with adjustable waist drawcord.",
+    "price": 79.99,
+    "category": "Clothing",
+    "brand": "Northfield",
+    "rating": 4.3,
+    "review_count": 416,
+    "stock": 18,
+    "features": [
+      "packable",
+      "tailored fit",
+      "10000mm rating"
+    ],
+    "tags": [
+      "clothing",
+      "packable",
+      "tailored_fit"
+    ],
+    "availability": "in_stock",
+    "metadata": {
+      "family": "Packable Rain Jacket"
+    }
+  },
+  {
+    "id": "228",
+    "title": "Running Shorts with Liner",
+    "description": "Stridewell lightweight running shorts with built-in brief liner, 13cm inseam, reflective trim for low-light visibility. Side zip pocket fits a phone securely.",
+    "price": 34.99,
+    "category": "Clothing",
+    "brand": "Stridewell",
+    "rating": 4.2,
+    "review_count": 1141,
+    "stock": 60,
+    "features": [
+      "reflective trim",
+      "zip pocket",
+      "built-in liner"
+    ],
+    "tags": [
+      "clothing",
+      "reflective_trim",
+      "zip_pocket"
+    ],
+    "availability": "in_stock",
+    "metadata": {
+      "family": "Running Shorts with Liner"
+    }
+  },
+  {
+    "id": "229",
+    "title": "Touchscreen Thermal Gloves",
+    "description": "Northfield thermal fleece-lined gloves with touchscreen-compatible fingertips, windproof shell, rated to -15C. Adjustable wrist strap for a secure fit.",
+    "price": 24.99,
+    "category": "Clothing",
+    "brand": "Northfield",
+    "rating": 4.0,
+    "review_count": 1497,
+    "stock": 100,
+    "features": [
+      "touchscreen compatible",
+      "windproof",
+      "-15C rated"
+    ],
+    "tags": [
+      "clothing",
+      "touchscreen_compatible",
+      "windproof"
+    ],
+    "availability": "in_stock",
+    "metadata": {
+      "family": "Touchscreen Thermal Gloves"
+    }
+  },
+  {
+    "id": "230",
+    "title": "Drip Coffee Maker",
+    "description": "Homehearth 12-cup programmable drip coffee maker with reusable filter, auto shut-off, and keep-warm plate. 24-hour programmable brew delay.",
+    "price": 49.99,
+    "category": "Home Appliances",
+    "brand": "Homehearth",
+    "rating": 4.1,
+    "review_count": 1519,
+    "stock": 12,
+    "features": [
+      "programmable",
+      "reusable filter",
+      "keep-warm plate"
+    ],
+    "tags": [
+      "home_appliances",
+      "programmable",
+      "reusable_filter"
+    ],
+    "availability": "in_stock",
+    "metadata": {
+      "family": "Drip Coffee Maker"
+    }
+  },
+  {
+    "id": "231",
+    "title": "Digital Air Fryer",
+    "description": "Homehearth 5.5L digital air fryer, 1700W, 8 preset cooking modes, dishwasher-safe non-stick basket. Rapid air circulation cuts oil use by up to 85%.",
+    "price": 89.99,
+    "category": "Home Appliances",
+    "brand": "Homehearth",
+    "rating": 4.5,
+    "review_count": 861,
+    "stock": 40,
+    "features": [
+      "5.5L capacity",
+      "8 presets",
+      "dishwasher-safe basket"
+    ],
+    "tags": [
+      "home_appliances",
+      "5.5L_capacity",
+      "8_presets"
+    ],
+    "availability": "in_stock",
+    "metadata": {
+      "family": "Digital Air Fryer"
+    }
+  },
+  {
+    "id": "232",
+    "title": "Cool Mist Humidifier",
+    "description": "Homehearth 4L ultrasonic cool mist humidifier, covers up to 400 sq ft, whisper-quiet operation. Built-in night light with adjustable brightness.",
+    "price": 44.99,
+    "category": "Home Appliances",
+    "brand": "Homehearth",
+    "rating": 4.2,
+    "review_count": 295,
+    "stock": 25,
+    "features": [
+      "ultrasonic",
+      "night light",
+      "400 sq ft coverage"
+    ],
+    "tags": [
+      "home_appliances",
+      "ultrasonic",
+      "night_light"
+    ],
+    "availability": "in_stock",
+    "metadata": {
+      "family": "Cool Mist Humidifier"
+    }
+  },
+  {
+    "id": "233",
+    "title": "Ergonomic Mesh Office Chair",
+    "description": "Deskform ergonomic mesh office chair with adjustable lumbar support, 4D armrests, and 135-degree recline. Breathable mesh back reduces heat buildup during long sits.",
+    "price": 229.99,
+    "category": "Home Office",
+    "brand": "Deskform",
+    "rating": 4.4,
+    "review_count": 2190,
+    "stock": 12,
+    "features": [
+      "4D armrests",
+      "lumbar support",
+      "135-degree recline"
+    ],
+    "tags": [
+      "home_office",
+      "4D_armrests",
+      "lumbar_support"
+    ],
+    "availability": "in_stock",
+    "metadata": {
+      "family": "Ergonomic Mesh Office Chair"
+    }
+  },
+  {
+    "id": "234",
+    "title": "Gas-Spring Monitor Arm",
+    "description": "Deskform single-monitor gas-spring arm, fits 13-32-inch displays, full articulation (tilt/swivel/rotate). Clamp and grommet desk mounts both included.",
+    "price": 44.99,
+    "category": "Home Office",
+    "brand": "Deskform",
+    "rating": 4.3,
+    "review_count": 672,
+    "stock": 18,
+    "features": [
+      "gas-spring",
+      "full articulation",
+      "13-32in displays"
+    ],
+    "tags": [
+      "home_office",
+      "gas-spring",
+      "full_articulation"
+    ],
+    "availability": "in_stock",
+    "metadata": {
+      "family": "Gas-Spring Monitor Arm"
+    }
+  },
+  {
+    "id": "235",
+    "title": "Bamboo Desk Organizer",
+    "description": "Deskform bamboo desk organizer with 6 compartments, phone stand slot, and pen/pencil tray. Sustainably sourced bamboo with a natural finish.",
+    "price": 27.99,
+    "category": "Home Office",
+    "brand": "Deskform",
+    "rating": 4.1,
+    "review_count": 1557,
+    "stock": 100,
+    "features": [
+      "bamboo",
+      "6 compartments",
+      "phone stand"
+    ],
+    "tags": [
+      "home_office",
+      "bamboo",
+      "6_compartments"
+    ],
+    "availability": "in_stock",
+    "metadata": {
+      "family": "Bamboo Desk Organizer"
+    }
+  },
+  {
+    "id": "236",
+    "title": "Adjustable LED Desk Lamp",
+    "description": "Deskform adjustable LED desk lamp with 5 lighting modes, USB charging port, and touch dimmer. Flicker-free, eye-care certified light.",
+    "price": 32.99,
+    "category": "Home Office",
+    "brand": "Deskform",
+    "rating": 4.3,
+    "review_count": 2284,
+    "stock": 25,
+    "features": [
+      "5 lighting modes",
+      "USB port",
+      "touch dimmer"
+    ],
+    "tags": [
+      "home_office",
+      "5_lighting_modes",
+      "USB_port"
+    ],
+    "availability": "in_stock",
+    "metadata": {
+      "family": "Adjustable LED Desk Lamp"
+    }
+  },
+  {
+    "id": "237",
+    "title": "Daily Multivitamin",
+    "description": "Vitalcore daily multivitamin, 90 tablets, 23 essential vitamins and minerals. Non-GMO, gluten-free, one tablet per day.",
+    "price": 14.99,
+    "category": "Nutrition",
+    "brand": "Vitalcore",
+    "rating": 4.2,
+    "review_count": 1331,
+    "stock": 18,
+    "features": [
+      "non-GMO",
+      "gluten-free",
+      "90 tablets"
+    ],
+    "tags": [
+      "nutrition",
+      "non-GMO",
+      "gluten-free"
+    ],
+    "availability": "in_stock",
+    "metadata": {
+      "family": "Daily Multivitamin"
+    }
+  },
+  {
+    "id": "238",
+    "title": "Protein Bars Box",
+    "description": "Vitalcore protein bars, 20g protein per bar, box of 12, peanut butter flavor. Low sugar, no artificial sweeteners.",
+    "price": 24.99,
+    "category": "Nutrition",
+    "brand": "Vitalcore",
+    "rating": 4.3,
+    "review_count": 941,
+    "stock": 0,
+    "features": [
+      "20g protein",
+      "low sugar",
+      "12-pack"
+    ],
+    "tags": [
+      "nutrition",
+      "20g_protein",
+      "low_sugar"
+    ],
+    "availability": "out_of_stock",
+    "metadata": {
+      "family": "Protein Bars Box"
+    }
+  },
+  {
+    "id": "239",
+    "title": "Pre-Workout Powder",
+    "description": "Vitalcore pre-workout powder, 200mg caffeine per serving, 30 servings, blue raspberry flavor. Includes beta-alanine and L-citrulline for endurance.",
+    "price": 29.99,
+    "category": "Nutrition",
+    "brand": "Vitalcore",
+    "rating": 4.1,
+    "review_count": 1295,
+    "stock": 0,
+    "features": [
+      "200mg caffeine",
+      "beta-alanine",
+      "30 servings"
+    ],
+    "tags": [
+      "nutrition",
+      "200mg_caffeine",
+      "beta-alanine"
+    ],
+    "availability": "out_of_stock",
+    "metadata": {
+      "family": "Pre-Workout Powder"
+    }
+  },
+  {
+    "id": "240",
+    "title": "Hardside Carry-On Luggage Standard",
+    "description": "Farbound 38L hardside carry-on with 360-degree spinner wheels, TSA-approved combination lock, and polycarbonate shell. Meets most airline carry-on size limits.",
+    "price": 99.99,
+    "category": "Travel",
+    "brand": "Farbound",
+    "rating": 4.3,
+    "review_count": 1099,
+    "stock": 60,
+    "features": [
+      "spinner wheels",
+      "TSA lock",
+      "polycarbonate shell"
+    ],
+    "tags": [
+      "travel",
+      "spinner_wheels",
+      "TSA_lock"
+    ],
+    "availability": "in_stock",
+    "metadata": {
+      "family": "Hardside Carry-On Luggage"
+    }
+  },
+  {
+    "id": "241",
+    "title": "Hardside Carry-On Luggage Expandable",
+    "description": "Farbound 42L hardside carry-on with 360-degree spinner wheels, TSA-approved combination lock, and polycarbonate shell. Zip expansion adds an extra 15% packing space.",
+    "price": 129.99,
+    "category": "Travel",
+    "brand": "Farbound",
+    "rating": 4.4,
+    "review_count": 867,
+    "stock": 5,
+    "features": [
+      "expandable",
+      "spinner wheels",
+      "TSA lock"
+    ],
+    "tags": [
+      "travel",
+      "expandable",
+      "spinner_wheels"
+    ],
+    "availability": "in_stock",
+    "metadata": {
+      "family": "Hardside Carry-On Luggage"
+    }
+  },
+  {
+    "id": "242",
+    "title": "Compression Packing Cubes Set",
+    "description": "Farbound packing cubes set (6 pieces), water-resistant ripstop fabric, double zip compression. Mesh top panel for at-a-glance packing.",
+    "price": 34.99,
+    "category": "Travel",
+    "brand": "Farbound",
+    "rating": 4.4,
+    "review_count": 873,
+    "stock": 40,
+    "features": [
+      "6-piece set",
+      "compression zip",
+      "ripstop fabric"
+    ],
+    "tags": [
+      "travel",
+      "6-piece_set",
+      "compression_zip"
+    ],
+    "availability": "in_stock",
+    "metadata": {
+      "family": "Compression Packing Cubes Set"
+    }
+  },
+  {
+    "id": "243",
+    "title": "Memory Foam Travel Pillow",
+    "description": "Farbound memory foam neck travel pillow with magnetic closure, machine-washable velour cover. Compresses into an included drawstring pouch.",
+    "price": 22.99,
+    "category": "Travel",
+    "brand": "Farbound",
+    "rating": 4.0,
+    "review_count": 1623,
+    "stock": 100,
+    "features": [
+      "memory foam",
+      "magnetic closure",
+      "washable cover"
+    ],
+    "tags": [
+      "travel",
+      "memory_foam",
+      "magnetic_closure"
+    ],
+    "availability": "in_stock",
+    "metadata": {
+      "family": "Memory Foam Travel Pillow"
+    }
+  },
+  {
+    "id": "244",
+    "title": "Universal Travel Adapter",
+    "description": "Farbound universal travel adapter for 150+ countries, 2 USB-A and 1 USB-C port, built-in fuse protection. Compact all-in-one design, no interchangeable parts to lose.",
+    "price": 24.99,
+    "category": "Travel",
+    "brand": "Farbound",
+    "rating": 4.3,
+    "review_count": 588,
+    "stock": 100,
+    "features": [
+      "150+ countries",
+      "USB-C port",
+      "fuse protection"
+    ],
+    "tags": [
+      "travel",
+      "150+_countries",
+      "USB-C_port"
+    ],
+    "availability": "in_stock",
+    "metadata": {
+      "family": "Universal Travel Adapter"
+    }
+  },
+  {
+    "id": "245",
+    "title": "Anti-Theft Neck Wallet",
+    "description": "Farbound RFID-blocking neck wallet with 3 compartments, moisture-wicking strap. Slim enough to wear discreetly under clothing.",
+    "price": 16.99,
+    "category": "Travel",
+    "brand": "Farbound",
+    "rating": 4.0,
+    "review_count": 574,
+    "stock": 25,
+    "features": [
+      "RFID-blocking",
+      "3 compartments",
+      "moisture-wicking"
+    ],
+    "tags": [
+      "travel",
+      "RFID-blocking",
+      "3_compartments"
+    ],
+    "availability": "in_stock",
+    "metadata": {
+      "family": "Anti-Theft Neck Wallet"
+    }
+  },
+  {
+    "id": "246",
+    "title": "Chef Knife Set",
+    "description": "Hearthstone 6-piece chef knife set, high-carbon stainless steel blades, ergonomic handles, includes wooden block. Full-tang construction for balance and durability.",
+    "price": 79.99,
+    "category": "Kitchen",
+    "brand": "Hearthstone",
+    "rating": 4.5,
+    "review_count": 2302,
+    "stock": 18,
+    "features": [
+      "high-carbon steel",
+      "6-piece set",
+      "wooden block"
+    ],
+    "tags": [
+      "kitchen",
+      "high-carbon_steel",
+      "6-piece_set"
+    ],
+    "availability": "in_stock",
+    "metadata": {
+      "family": "Chef Knife Set"
+    }
+  },
+  {
+    "id": "247",
+    "title": "Non-Stick Cookware Set",
+    "description": "Hearthstone 10-piece non-stick cookware set, PFOA-free coating, tempered glass lids, oven-safe to 260C. Compatible with all stovetops including induction.",
+    "price": 119.99,
+    "category": "Kitchen",
+    "brand": "Hearthstone",
+    "rating": 4.3,
+    "review_count": 1079,
+    "stock": 150,
+    "features": [
+      "PFOA-free",
+      "10-piece set",
+      "induction compatible"
+    ],
+    "tags": [
+      "kitchen",
+      "PFOA-free",
+      "10-piece_set"
+    ],
+    "availability": "in_stock",
+    "metadata": {
+      "family": "Non-Stick Cookware Set"
+    }
+  },
+  {
+    "id": "248",
+    "title": "Bamboo Cutting Board Set",
+    "description": "Hearthstone 3-piece bamboo cutting board set with juice grooves, non-slip feet, various sizes. Naturally antimicrobial bamboo surface.",
+    "price": 29.99,
+    "category": "Kitchen",
+    "brand": "Hearthstone",
+    "rating": 4.2,
+    "review_count": 2393,
+    "stock": 60,
+    "features": [
+      "bamboo",
+      "3-piece set",
+      "non-slip feet"
+    ],
+    "tags": [
+      "kitchen",
+      "bamboo",
+      "3-piece_set"
+    ],
+    "availability": "in_stock",
+    "metadata": {
+      "family": "Bamboo Cutting Board Set"
+    }
+  },
+  {
+    "id": "249",
+    "title": "Glass Food Storage Containers",
+    "description": "Hearthstone 10-piece glass food storage set with airtight snap lids, microwave/freezer/dishwasher safe. BPA-free lids with a silicone seal.",
+    "price": 39.99,
+    "category": "Kitchen",
+    "brand": "Hearthstone",
+    "rating": 4.4,
+    "review_count": 1485,
+    "stock": 60,
+    "features": [
+      "airtight",
+      "10-piece set",
+      "BPA-free"
+    ],
+    "tags": [
+      "kitchen",
+      "airtight",
+      "10-piece_set"
+    ],
+    "availability": "in_stock",
+    "metadata": {
+      "family": "Glass Food Storage Containers"
+    }
+  },
+  {
+    "id": "250",
+    "title": "Digital Kitchen Scale",
+    "description": "Hearthstone digital kitchen scale, 5kg capacity, 1g precision, tare function, tempered glass platform. Auto-off after 2 minutes of inactivity to save battery.",
+    "price": 17.99,
+    "category": "Kitchen",
+    "brand": "Hearthstone",
+    "rating": 4.1,
+    "review_count": 569,
+    "stock": 18,
+    "features": [
+      "1g precision",
+      "tare function",
+      "tempered glass"
+    ],
+    "tags": [
+      "kitchen",
+      "1g_precision",
+      "tare_function"
+    ],
+    "availability": "in_stock",
+    "metadata": {
+      "family": "Digital Kitchen Scale"
+    }
+  },
+  {
+    "id": "251",
+    "title": "Sonic Electric Toothbrush",
+    "description": "Purelume sonic electric toothbrush, 5 cleaning modes, 30-day battery life, includes 4 brush heads. Built-in 2-minute smart timer with quadrant alerts.",
+    "price": 44.99,
+    "category": "Personal Care",
+    "brand": "Purelume",
+    "rating": 4.4,
+    "review_count": 2024,
+    "stock": 150,
+    "features": [
+      "5 modes",
+      "30-day battery",
+      "smart timer"
+    ],
+    "tags": [
+      "personal_care",
+      "5_modes",
+      "30-day_battery"
+    ],
+    "availability": "in_stock",
+    "metadata": {
+      "family": "Sonic Electric Toothbrush"
+    }
+  },
+  {
+    "id": "252",
+    "title": "Ionic Hair Dryer",
+    "description": "Purelume ionic hair dryer, 1875W motor, 6 heat/speed settings, cool-shot button. Ionic technology reduces frizz and drying time.",
+    "price": 54.99,
+    "category": "Personal Care",
+    "brand": "Purelume",
+    "rating": 4.2,
+    "review_count": 195,
+    "stock": 5,
+    "features": [
+      "ionic",
+      "1875W",
+      "6 settings"
+    ],
+    "tags": [
+      "personal_care",
+      "ionic",
+      "1875W"
+    ],
+    "availability": "in_stock",
+    "metadata": {
+      "family": "Ionic Hair Dryer"
+    }
+  },
+  {
+    "id": "253",
+    "title": "Facial Cleansing Brush",
+    "description": "Purelume silicone facial cleansing brush, 3 vibration speeds, waterproof for shower use. USB rechargeable with 90-minute battery life.",
+    "price": 29.99,
+    "category": "Personal Care",
+    "brand": "Purelume",
+    "rating": 4.1,
+    "review_count": 629,
+    "stock": 5,
+    "features": [
+      "silicone",
+      "waterproof",
+      "USB rechargeable"
+    ],
+    "tags": [
+      "personal_care",
+      "silicone",
+      "waterproof"
+    ],
+    "availability": "in_stock",
+    "metadata": {
+      "family": "Facial Cleansing Brush"
+    }
+  },
+  {
+    "id": "254",
+    "title": "Precision Beard Trimmer",
+    "description": "Purelume precision beard trimmer, 20 length settings, self-sharpening steel blades, 90min runtime. Fully washable head for easy cleaning.",
+    "price": 34.99,
+    "category": "Personal Care",
+    "brand": "Purelume",
+    "rating": 4.3,
+    "review_count": 1732,
+    "stock": 12,
+    "features": [
+      "20 length settings",
+      "self-sharpening blades",
+      "washable head"
+    ],
+    "tags": [
+      "personal_care",
+      "20_length_settings",
+      "self-sharpening_blades"
+    ],
+    "availability": "in_stock",
+    "metadata": {
+      "family": "Precision Beard Trimmer"
+    }
+  },
+  {
+    "id": "255",
+    "title": "Wireless Gaming Headset Core",
+    "description": "Kinetic wireless gaming headset with stereo surround sound, 20h battery, detachable noise-cancelling mic. Memory foam ear cushions for extended sessions.",
+    "price": 69.99,
+    "category": "Gaming",
+    "brand": "Kinetic",
+    "rating": 4.2,
+    "review_count": 1579,
+    "stock": 5,
+    "features": [
+      "stereo",
+      "20h battery",
+      "detachable mic"
+    ],
+    "tags": [
+      "gaming",
+      "stereo",
+      "20h_battery"
+    ],
+    "availability": "in_stock",
+    "metadata": {
+      "family": "Wireless Gaming Headset"
+    }
+  },
+  {
+    "id": "256",
+    "title": "Wireless Gaming Headset Elite",
+    "description": "Kinetic wireless gaming headset with 7.1 surround sound, 30h battery, detachable noise-cancelling mic. Low-latency 2.4GHz wireless with USB-C fast charging.",
+    "price": 129.99,
+    "category": "Gaming",
+    "brand": "Kinetic",
+    "rating": 4.5,
+    "review_count": 1920,
+    "stock": 60,
+    "features": [
+      "7.1 surround",
+      "30h battery",
+      "USB-C fast charge"
+    ],
+    "tags": [
+      "gaming",
+      "7.1_surround",
+      "30h_battery"
+    ],
+    "availability": "in_stock",
+    "metadata": {
+      "family": "Wireless Gaming Headset"
+    }
+  },
+  {
+    "id": "257",
+    "title": "Ergonomic Gaming Chair",
+    "description": "Deskform ergonomic gaming chair with 4D armrests, 165-degree recline, and removable lumbar + neck pillows. PU leather upholstery rated for up to 150kg.",
+    "price": 249.99,
+    "category": "Gaming",
+    "brand": "Deskform",
+    "rating": 4.3,
+    "review_count": 1032,
+    "stock": 150,
+    "features": [
+      "165-degree recline",
+      "4D armrests",
+      "150kg rated"
+    ],
+    "tags": [
+      "gaming",
+      "165-degree_recline",
+      "4D_armrests"
+    ],
+    "availability": "in_stock",
+    "metadata": {
+      "family": "Ergonomic Gaming Chair"
+    }
+  },
+  {
+    "id": "258",
+    "title": "Wireless Game Controller Standard",
+    "description": "Kinetic wireless game controller with 25h battery, programmable back paddles, and hall-effect analog sticks. Compatible with PC, console, and mobile via Bluetooth.",
+    "price": 54.99,
+    "category": "Gaming",
+    "brand": "Kinetic",
+    "rating": 4.4,
+    "review_count": 50,
+    "stock": 150,
+    "features": [
+      "hall-effect sticks",
+      "back paddles",
+      "25h battery"
+    ],
+    "tags": [
+      "gaming",
+      "hall-effect_sticks",
+      "back_paddles"
+    ],
+    "availability": "in_stock",
+    "metadata": {
+      "family": "Wireless Game Controller"
+    }
+  },
+  {
+    "id": "259",
+    "title": "Wireless Game Controller Pro",
+    "description": "Kinetic wireless game controller with 35h battery, programmable back paddles, and hall-effect analog sticks. Interchangeable magnetic thumbsticks and adjustable trigger stops.",
+    "price": 79.99,
+    "category": "Gaming",
+    "brand": "Kinetic",
+    "rating": 4.6,
+    "review_count": 2202,
+    "stock": 5,
+    "features": [
+      "magnetic thumbsticks",
+      "adjustable triggers",
+      "35h battery"
+    ],
+    "tags": [
+      "gaming",
+      "magnetic_thumbsticks",
+      "adjustable_triggers"
+    ],
+    "availability": "in_stock",
+    "metadata": {
+      "family": "Wireless Game Controller"
+    }
+  },
+  {
+    "id": "260",
+    "title": "RGB Gaming Mouse Pad",
+    "description": "Kinetic extended RGB gaming mouse pad, 900x400mm, stitched anti-fray edges, non-slip rubber base. 16.8M color RGB lighting synced via companion app.",
+    "price": 24.99,
+    "category": "Gaming",
+    "brand": "Kinetic",
+    "rating": 4.0,
+    "review_count": 1396,
+    "stock": 25,
+    "features": [
+      "RGB lighting",
+      "900x400mm",
+      "anti-fray edges"
+    ],
+    "tags": [
+      "gaming",
+      "RGB_lighting",
+      "900x400mm"
+    ],
+    "availability": "in_stock",
+    "metadata": {
+      "family": "RGB Gaming Mouse Pad"
+    }
+  }
+]
