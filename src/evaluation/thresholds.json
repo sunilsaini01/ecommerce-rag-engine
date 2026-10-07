@@ -1,7 +1,7 @@
 {
   "_comment": "CI/CD quality gate thresholds for eval_v2.py. Each value is documented, not arbitrary.",
   "recall_at_k": {
-    "value": 0.70,
+    "value": 0.7,
     "reason": "Matches the original eval.py Hit-Rate@5 gate (0.70), carried forward as the recall floor for the 100-product catalog baseline recorded in README. Averaged only over cases with a non-empty expected_product_ids (negative/adversarial cases are excluded, not zero-filled — see refusal_correct for those)."
   },
   "mrr": {
@@ -9,7 +9,7 @@
     "reason": "Requires the correct product to typically land at or near rank 1-2 on average (1/0.55 ~= rank 1.8), reasonable for a catalog with several near-duplicate product families."
   },
   "hit_rate_at_k": {
-    "value": 0.70,
+    "value": 0.7,
     "reason": "Preserves the original eval.py gate value so the CI bar does not silently loosen when eval_v2 replaces it. Same non-empty-expected scoping as recall_at_k."
   },
   "refusal_correct": {
@@ -17,7 +17,130 @@
     "reason": "For negative/adversarial cases (no matching product should be returned), the system must actually say so rather than hallucinate a product. 0.75 tolerates occasional LLM phrasing drift without masking a real regression."
   },
   "faithfulness_lexical": {
-    "value": 0.40,
+    "value": 0.4,
     "reason": "Intentionally lenient — this is a keyword-overlap heuristic (see README's 'lexical heuristic vs semantic evaluation' distinction), not true faithfulness. A paraphrased-but-correct answer can legitimately score low here, so it is a floor against obvious drift, not a quality target."
+  },
+  "_by_level_comment": "Required categories and minimum case counts match the 31-case stage-100 benchmark. Retrieval and refusal floors retain the overall policy per category. Lexical faithfulness remains an overall heuristic; it is undefined for refusal cases. A subset benchmark needs its own threshold configuration.",
+  "by_level": {
+    "exact_lexical": {
+      "min_count": 4,
+      "metrics": {
+        "recall_at_k": {
+          "value": 0.7,
+          "reason": "Matches the original eval.py Hit-Rate@5 gate (0.70), carried forward as the recall floor for the 100-product catalog baseline recorded in README. Averaged only over cases with a non-empty expected_product_ids (negative/adversarial cases are excluded, not zero-filled — see refusal_correct for those)."
+        },
+        "mrr": {
+          "value": 0.55,
+          "reason": "Requires the correct product to typically land at or near rank 1-2 on average (1/0.55 ~= rank 1.8), reasonable for a catalog with several near-duplicate product families."
+        },
+        "hit_rate_at_k": {
+          "value": 0.7,
+          "reason": "Preserves the original eval.py gate value so the CI bar does not silently loosen when eval_v2 replaces it. Same non-empty-expected scoping as recall_at_k."
+        }
+      }
+    },
+    "semantic_paraphrase": {
+      "min_count": 4,
+      "metrics": {
+        "recall_at_k": {
+          "value": 0.7,
+          "reason": "Matches the original eval.py Hit-Rate@5 gate (0.70), carried forward as the recall floor for the 100-product catalog baseline recorded in README. Averaged only over cases with a non-empty expected_product_ids (negative/adversarial cases are excluded, not zero-filled — see refusal_correct for those)."
+        },
+        "mrr": {
+          "value": 0.55,
+          "reason": "Requires the correct product to typically land at or near rank 1-2 on average (1/0.55 ~= rank 1.8), reasonable for a catalog with several near-duplicate product families."
+        },
+        "hit_rate_at_k": {
+          "value": 0.7,
+          "reason": "Preserves the original eval.py gate value so the CI bar does not silently loosen when eval_v2 replaces it. Same non-empty-expected scoping as recall_at_k."
+        }
+      }
+    },
+    "price_constraint": {
+      "min_count": 3,
+      "metrics": {
+        "recall_at_k": {
+          "value": 0.7,
+          "reason": "Matches the original eval.py Hit-Rate@5 gate (0.70), carried forward as the recall floor for the 100-product catalog baseline recorded in README. Averaged only over cases with a non-empty expected_product_ids (negative/adversarial cases are excluded, not zero-filled — see refusal_correct for those)."
+        },
+        "mrr": {
+          "value": 0.55,
+          "reason": "Requires the correct product to typically land at or near rank 1-2 on average (1/0.55 ~= rank 1.8), reasonable for a catalog with several near-duplicate product families."
+        },
+        "hit_rate_at_k": {
+          "value": 0.7,
+          "reason": "Preserves the original eval.py gate value so the CI bar does not silently loosen when eval_v2 replaces it. Same non-empty-expected scoping as recall_at_k."
+        }
+      }
+    },
+    "attribute_based": {
+      "min_count": 4,
+      "metrics": {
+        "recall_at_k": {
+          "value": 0.7,
+          "reason": "Matches the original eval.py Hit-Rate@5 gate (0.70), carried forward as the recall floor for the 100-product catalog baseline recorded in README. Averaged only over cases with a non-empty expected_product_ids (negative/adversarial cases are excluded, not zero-filled — see refusal_correct for those)."
+        },
+        "mrr": {
+          "value": 0.55,
+          "reason": "Requires the correct product to typically land at or near rank 1-2 on average (1/0.55 ~= rank 1.8), reasonable for a catalog with several near-duplicate product families."
+        },
+        "hit_rate_at_k": {
+          "value": 0.7,
+          "reason": "Preserves the original eval.py gate value so the CI bar does not silently loosen when eval_v2 replaces it. Same non-empty-expected scoping as recall_at_k."
+        }
+      }
+    },
+    "multi_constraint": {
+      "min_count": 4,
+      "metrics": {
+        "recall_at_k": {
+          "value": 0.7,
+          "reason": "Matches the original eval.py Hit-Rate@5 gate (0.70), carried forward as the recall floor for the 100-product catalog baseline recorded in README. Averaged only over cases with a non-empty expected_product_ids (negative/adversarial cases are excluded, not zero-filled — see refusal_correct for those)."
+        },
+        "mrr": {
+          "value": 0.55,
+          "reason": "Requires the correct product to typically land at or near rank 1-2 on average (1/0.55 ~= rank 1.8), reasonable for a catalog with several near-duplicate product families."
+        },
+        "hit_rate_at_k": {
+          "value": 0.7,
+          "reason": "Preserves the original eval.py gate value so the CI bar does not silently loosen when eval_v2 replaces it. Same non-empty-expected scoping as recall_at_k."
+        }
+      }
+    },
+    "ambiguous": {
+      "min_count": 4,
+      "metrics": {
+        "hit_rate_at_k": {
+          "value": 0.7,
+          "reason": "Preserves the original eval.py gate value so the CI bar does not silently loosen when eval_v2 replaces it. Same non-empty-expected scoping as recall_at_k."
+        },
+        "mrr": {
+          "value": 0.55,
+          "reason": "Requires the correct product to typically land at or near rank 1-2 on average (1/0.55 ~= rank 1.8), reasonable for a catalog with several near-duplicate product families."
+        },
+        "ndcg_at_k": {
+          "value": 0.7,
+          "reason": "Broad queries can have more relevant products than top K can return. Require ranking quality rather than an unattainable recall floor; 0.70 is a conservative regression floor below the recorded 0.91 baseline."
+        }
+      }
+    },
+    "negative": {
+      "min_count": 4,
+      "metrics": {
+        "refusal_correct": {
+          "value": 0.75,
+          "reason": "For negative/adversarial cases (no matching product should be returned), the system must actually say so rather than hallucinate a product. 0.75 tolerates occasional LLM phrasing drift without masking a real regression."
+        }
+      }
+    },
+    "adversarial": {
+      "min_count": 4,
+      "metrics": {
+        "refusal_correct": {
+          "value": 0.75,
+          "reason": "For negative/adversarial cases (no matching product should be returned), the system must actually say so rather than hallucinate a product. 0.75 tolerates occasional LLM phrasing drift without masking a real regression."
+        }
+      }
+    }
   }
 }

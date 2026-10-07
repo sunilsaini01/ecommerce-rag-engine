@@ -17,6 +17,7 @@ from src.backend.services.search import ProductSearchService
 from src.backend.services.cache import CacheService
 from src.backend.services.llm import LLMService, NO_MATCH_MESSAGE
 from src.backend.services.context_builder import build_context
+from src.backend.models.api_schemas import ProductAttributes, ProductFilters
 from src.backend.observability.tracing import traceable, only_fields
 
 
@@ -26,7 +27,7 @@ from src.backend.observability.tracing import traceable, only_fields
     # search_service/cache_service/llm_service are live objects (one holds
     # the Groq client, which holds the real API key) — never let them near
     # the trace serializer. See tracing.only_fields.
-    process_inputs=only_fields("query", "limit"),
+    process_inputs=only_fields("query", "limit", "filters"),
 )
 async def run_rag_pipeline(
     query: str,
@@ -34,12 +35,14 @@ async def run_rag_pipeline(
     search_service: ProductSearchService,
     cache_service: CacheService,
     llm_service: LLMService,
+    filters: ProductFilters | None = None,
 ) -> dict:
     total_start = time.perf_counter()
 
     # Step 1: Cache check
     cache_start = time.perf_counter()
-    cache_result = await cache_service.lookup(query)
+    filter_kwargs = {"filters": filters} if filters is not None else {}
+    cache_result = await cache_service.lookup(query, limit=limit, **filter_kwargs)
     cache_ms = (time.perf_counter() - cache_start) * 1000
 
     if cache_result["cache_hit"]:
@@ -72,7 +75,7 @@ async def run_rag_pipeline(
     # Step 2: Hybrid search
     logger.info(f"[CACHE MISS] query='{query}' — running hybrid search.")
     search_start = time.perf_counter()
-    raw_results = await search_service.search(query=query, limit=limit)
+    raw_results = await search_service.search(query=query, limit=limit, **filter_kwargs)
     search_ms = (time.perf_counter() - search_start) * 1000
 
     if not raw_results:
@@ -105,6 +108,7 @@ async def run_rag_pipeline(
             "category": r.get("category", ""),
             "price": r.get("price", 0.0),
             "rrf_score": round(r["score"], 6),
+            **ProductAttributes.model_validate(r).model_dump(),
         }
         for r in raw_results
     ]

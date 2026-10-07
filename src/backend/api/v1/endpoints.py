@@ -9,6 +9,7 @@ from src.backend.models.api_schemas import (
     RetrievedProduct,
     TimingBreakdown,
     AskResponseEnvelope,
+    ProductAttributes,
 )
 from src.backend.services.search import ProductSearchService
 from src.backend.services.cache import CacheService
@@ -16,6 +17,7 @@ from src.backend.services.llm import LLMService, NO_MATCH_MESSAGE
 from src.backend.services.rag_pipeline import run_rag_pipeline
 from src.backend.api.security import verify_api_key, enforce_rate_limit
 from src.backend.observability.tracing import langsmith_extra
+from src.backend.services.errors import DependencyUnavailable
 
 router = APIRouter()
 
@@ -48,6 +50,7 @@ async def search_products(
     raw_results = await service.search(
         query=request.q,
         limit=request.limit,
+        filters=request.filters,
         langsmith_extra=langsmith_extra(
             tags=["endpoint:search"],
             endpoint="/api/v1/search",
@@ -65,6 +68,7 @@ async def search_products(
             price=r.get("price", 0.0),
             category=r.get("category", ""),
             score=r["score"],
+            **ProductAttributes.model_validate(r).model_dump(),
         )
         for r in raw_results
     ]
@@ -94,12 +98,16 @@ async def ask_products(
         search_service=search_service,
         cache_service=cache_service,
         llm_service=llm_service,
+        filters=request.filters,
         langsmith_extra=langsmith_extra(
             tags=["endpoint:ask"],
             endpoint="/api/v1/ask",
             top_k=request.limit,
         ),
     )
+
+    if result["source"] == "llm_error":
+        raise DependencyUnavailable("Answer generation service")
 
     return AskResponseEnvelope(
         answer=result["answer"],

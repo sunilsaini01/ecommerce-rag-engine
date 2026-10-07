@@ -8,7 +8,9 @@ import json
 from unittest.mock import AsyncMock
 
 import pytest
+from fakeredis import aioredis as fake_aioredis
 
+from src.backend.services.cache import CacheService
 from src.backend.services.rag_pipeline import run_rag_pipeline
 
 
@@ -33,6 +35,41 @@ def _mock_services(cache_hit: bool, cached_payload: dict | None = None, search_r
 
 @pytest.mark.asyncio
 class TestRagPipeline:
+    @pytest.mark.parametrize("limits", [(3, 10), (10, 3)])
+    async def test_different_limits_cache_separate_answers_and_products(self, limits):
+        cache_service = CacheService.__new__(CacheService)
+        cache_service.client = fake_aioredis.FakeRedis(decode_responses=True)
+        search_service = AsyncMock()
+        llm_service = AsyncMock()
+
+        async def search(query, limit):
+            return [
+                {"id": str(i), "title": f"Widget {i}", "price": 9.99, "score": 0.9}
+                for i in range(limit)
+            ]
+
+        search_service.search.side_effect = search
+        llm_service.generate_answer.side_effect = [
+            (f"Answer for {limit} products", True) for limit in limits
+        ]
+        try:
+            for limit in limits:
+                result = await run_rag_pipeline("widget", limit, search_service, cache_service, llm_service)
+                assert result["source"] == "llm"
+                assert len(result["retrieved_products"]) == limit
+                assert result["answer"] == f"Answer for {limit} products"
+
+            for limit in limits:
+                result = await run_rag_pipeline("widget", limit, search_service, cache_service, llm_service)
+                assert result["source"] == "cache"
+                assert len(result["retrieved_products"]) == limit
+                assert result["answer"] == f"Answer for {limit} products"
+
+            assert search_service.search.await_count == 2
+            assert llm_service.generate_answer.await_count == 2
+        finally:
+            await cache_service.close()
+
     async def test_cache_hit_returns_original_retrieved_products(self):
         cached_payload = {
             "answer": "The Widget costs $9.99.",

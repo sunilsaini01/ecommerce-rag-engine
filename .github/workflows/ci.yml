@@ -57,7 +57,7 @@ jobs:
   evaluate:
     needs: test
     runs-on: ubuntu-latest
-    if: ${{ secrets.GROQ_API_KEY != '' }}
+    timeout-minutes: 20
     services:
       qdrant:
         image: qdrant/qdrant:latest
@@ -71,34 +71,54 @@ jobs:
       GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
       CATALOG_VERSION: ci-stage-100
       LANGSMITH_TRACING: "false"
+      # 31 benchmark queries + a cache pass exceed the app's 30/min default.
+      RATE_LIMIT_PER_MINUTE: "240"
     steps:
+      - name: Check live evaluation credentials
+        id: credentials
+        shell: bash
+        run: |
+          if [ -n "$GROQ_API_KEY" ]; then
+            echo "available=true" >> "$GITHUB_OUTPUT"
+          elif [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "::error::Configure the GROQ_API_KEY Actions secret before requesting a live evaluation."
+            exit 1
+          else
+            echo "available=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::Live evaluation skipped: GROQ_API_KEY Actions secret is not configured."
+          fi
+
       - uses: actions/checkout@v4
+        if: steps.credentials.outputs.available == 'true'
 
       - uses: actions/setup-python@v5
+        if: steps.credentials.outputs.available == 'true'
         with:
           python-version: "3.11"
           cache: "pip"
 
       - name: Install dependencies
+        if: steps.credentials.outputs.available == 'true'
         run: pip install -r requirements-dev.txt
 
       - name: Ingest 100-product catalog
+        if: steps.credentials.outputs.available == 'true'
         run: python -m src.ingestion.ingest --data-path data/raw/products_100.json --catalog-version ci-stage-100 --recreate
 
       - name: Start backend
+        if: steps.credentials.outputs.available == 'true'
         run: |
           nohup uvicorn src.backend.main:app --host 0.0.0.0 --port 8000 > backend.log 2>&1 &
           for i in $(seq 1 30); do
-            curl -sf http://localhost:8000/docs > /dev/null && break
+            curl --max-time 5 -sf http://localhost:8000/ready > /dev/null && break
             sleep 2
           done
-
-      - name: Run legacy evaluation (backward compatibility)
-        run: python src/evaluation/eval.py
+          curl --max-time 5 -sf http://localhost:8000/ready
 
       - name: Run extended evaluation gate (Recall@K, MRR, NDCG, refusal_correct, faithfulness_lexical)
+        if: steps.credentials.outputs.available == 'true'
         run: |
-          python src/evaluation/eval_v2.py \
+          python -m src.evaluation.eval_v2 \
             --ground-truth src/evaluation/ground_truth_100.json \
             --catalog-version ci-stage-100 \
             --gate \
@@ -106,7 +126,7 @@ jobs:
 
       - name: Show backend log on failure
         if: failure()
-        run: cat backend.log
+        run: test ! -f backend.log || cat backend.log
 
       - name: Upload evaluation reports
         if: always()

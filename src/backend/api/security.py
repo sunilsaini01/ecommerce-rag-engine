@@ -1,7 +1,10 @@
 import time
+import asyncio
+from redis.exceptions import RedisError
 from fastapi import HTTPException, Request
 
 from config.settings import settings
+from src.backend.services.errors import DependencyUnavailable
 
 
 def verify_api_key(request: Request) -> None:
@@ -23,9 +26,17 @@ async def enforce_rate_limit(request: Request) -> None:
     key = f"ratelimit:{client_ip}:{bucket}"
 
     redis_client = request.app.state.cache_service.client
-    count = await redis_client.incr(key)
-    if count == 1:
-        await redis_client.expire(key, 60)
+    async def increment_counter():
+        count = await redis_client.incr(key)
+        if count == 1:
+            await redis_client.expire(key, 60)
+        return count
+
+    try:
+        count = await asyncio.wait_for(increment_counter(), settings.REDIS_TIMEOUT_SECONDS)
+    except (RedisError, TimeoutError, OSError) as exc:
+        # Fail closed: don't send paid LLM calls when quota enforcement is down.
+        raise DependencyUnavailable("Rate limiting service") from exc
 
     if count > settings.RATE_LIMIT_PER_MINUTE:
         raise HTTPException(

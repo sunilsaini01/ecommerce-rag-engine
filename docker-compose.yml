@@ -36,6 +36,12 @@ services:
       - QDRANT_GRPC_PORT=6334
       - REDIS_HOST=redis
       - REDIS_PORT=6379
+      - REDIS_TIMEOUT_SECONDS=${REDIS_TIMEOUT_SECONDS:-1}
+      - QDRANT_TIMEOUT_SECONDS=${QDRANT_TIMEOUT_SECONDS:-3}
+      - SEARCH_TIMEOUT_SECONDS=${SEARCH_TIMEOUT_SECONDS:-6}
+      - LLM_TIMEOUT_SECONDS=${LLM_TIMEOUT_SECONDS:-5}
+      - LLM_GENERATION_TIMEOUT_SECONDS=${LLM_GENERATION_TIMEOUT_SECONDS:-20}
+      - READINESS_TIMEOUT_SECONDS=${READINESS_TIMEOUT_SECONDS:-2}
       - COLLECTION_NAME=ecommerce_products
       - GROQ_API_KEY=${GROQ_API_KEY}
       - API_KEY=${API_KEY:-}
@@ -48,6 +54,12 @@ services:
       - LANGSMITH_API_KEY=${LANGSMITH_API_KEY:-}
       - LANGSMITH_PROJECT=${LANGSMITH_PROJECT:-ecommerce-rag-engine}
       - LANGSMITH_ENDPOINT=${LANGSMITH_ENDPOINT:-https://api.smith.langchain.com}
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/ready', timeout=5)"]
+      interval: 30s
+      timeout: 6s
+      start_period: 60s
+      retries: 3
     depends_on:
       - qdrant
       - redis

@@ -37,7 +37,35 @@ query = st.text_input(
     max_chars=200,
 )
 
-search_clicked = st.button("Search", type="primary")
+filters = {}
+with st.expander("Product filters"):
+    col1, col2 = st.columns(2)
+    with col1:
+        min_price = st.number_input("Minimum price ($)", min_value=0.0, value=0.0)
+        use_max_price = st.checkbox("Set maximum price")
+        max_price = st.number_input("Maximum price ($)", min_value=0.0, value=100.0, disabled=not use_max_price)
+        category = st.text_input("Category (exact catalog name)", max_chars=100)
+    with col2:
+        min_rating = st.number_input("Minimum rating", min_value=0.0, max_value=5.0, value=0.0, step=0.5)
+        in_stock = st.checkbox("In stock only")
+        brand = st.text_input("Brand (exact catalog name)", max_chars=100)
+    if min_price > 0:
+        filters["min_price"] = min_price
+    if use_max_price:
+        filters["max_price"] = max_price
+    if min_rating > 0:
+        filters["min_rating"] = min_rating
+    if in_stock:
+        filters["min_stock"] = 1
+    if category.strip():
+        filters["category"] = category.strip()
+    if brand.strip():
+        filters["brand"] = brand.strip()
+
+invalid_price_range = use_max_price and min_price > max_price
+if invalid_price_range:
+    st.warning("Minimum price must not exceed maximum price.")
+search_clicked = st.button("Search", type="primary", disabled=invalid_price_range)
 
 # ── Query Execution ───────────────────────────────────────
 if search_clicked and query.strip():
@@ -45,10 +73,13 @@ if search_clicked and query.strip():
         try:
             response = requests.post(
                 f"{BACKEND_URL}/api/v1/ask",
-                json={"q": query.strip(), "limit": 5},
+                json={"q": query.strip(), "limit": 5, "filters": filters},
                 headers=REQUEST_HEADERS,
                 timeout=30,
             )
+            if response.status_code == 503:
+                detail = response.json().get("detail", "Search is temporarily unavailable. Please try again shortly.")
+                raise requests.exceptions.HTTPError(detail, response=response)
             response.raise_for_status()
             data = response.json()
 
@@ -61,6 +92,8 @@ if search_clicked and query.strip():
             st.error("Cannot connect to backend. Make sure the FastAPI server is running.")
         except requests.exceptions.Timeout:
             st.error("Request timed out. The LLM may be under load.")
+        except requests.exceptions.HTTPError as exc:
+            st.error(str(exc))
         except Exception as e:
             st.error(f"Unexpected error: {e}")
 

@@ -292,6 +292,9 @@ def _avg(values: list) -> float | None:
 def aggregate(results: list[dict]) -> dict:
     return {
         "count": len(results),
+        "failed_count": sum(
+            1 for r in results if "error" in r or r.get("source") == "llm_error"
+        ),
         "precision_at_k": _avg([r.get("precision_at_k") for r in results]),
         "hit_rate_at_k": _avg([r.get("hit_rate_at_k") for r in results]),
         "recall_at_k": _avg([r.get("recall_at_k") for r in results]),
@@ -334,24 +337,57 @@ def print_report(overall: dict, by_level: dict, cache_hit_rate: float) -> None:
     print("=" * 100)
 
 
-def check_thresholds(overall: dict, thresholds_path: str) -> bool:
+def _check_metric_thresholds(metrics: dict, thresholds: dict, label: str) -> bool:
+    passed = True
+    for metric, spec in thresholds.items():
+        if metric.startswith("_"):
+            continue
+        actual = metrics.get(metric)
+        required = spec["value"]
+        if (
+            not isinstance(actual, (int, float))
+            or isinstance(actual, bool)
+            or not math.isfinite(actual)
+        ):
+            print(f"  [FAIL] {label}{metric}: required metric is missing or invalid")
+            passed = False
+            continue
+        ok = actual >= required
+        passed = passed and ok
+        status = "PASS" if ok else "FAIL"
+        print(f"  [{status}] {label}{metric}: {actual:.4f} >= {required} ({spec['reason']})")
+    return passed
+
+
+def check_thresholds(overall: dict, thresholds_path: str, by_level: dict | None = None) -> bool:
+    """Require both overall quality and every configured query category to pass."""
     with open(thresholds_path, "r") as f:
         thresholds = json.load(f)
 
     passed = True
     print("\nQuality gate:")
-    for metric, spec in thresholds.items():
-        if metric.startswith("_"):
+    if not overall.get("count", 0):
+        print("  [FAIL] No evaluation cases were run")
+        passed = False
+    if overall.get("failed_count", 0):
+        print(f"  [FAIL] {overall['failed_count']} evaluation request(s) failed")
+        passed = False
+    overall_thresholds = {key: value for key, value in thresholds.items() if key != "by_level"}
+    passed = _check_metric_thresholds(overall, overall_thresholds, "overall.") and passed
+
+    for level_name, spec in thresholds.get("by_level", {}).items():
+        metrics = (by_level or {}).get(level_name)
+        if metrics is None:
+            print(f"  [FAIL] {level_name}: required query category is missing")
+            passed = False
             continue
-        actual = overall.get(metric)
-        required = spec["value"]
-        if not isinstance(actual, (int, float)):
-            print(f"  [SKIP] {metric}: not measured")
-            continue
-        ok = actual >= required
-        passed = passed and ok
-        status = "PASS" if ok else "FAIL"
-        print(f"  [{status}] {metric}: {actual:.4f} >= {required} ({spec['reason']})")
+        if metrics.get("count", 0) < spec["min_count"]:
+            print(f"  [FAIL] {level_name}: requires at least {spec['min_count']} evaluation cases")
+            passed = False
+        if metrics.get("failed_count", 0):
+            print(f"  [FAIL] {level_name}: {metrics['failed_count']} evaluation request(s) failed")
+            passed = False
+        passed = _check_metric_thresholds(metrics, spec["metrics"], f"{level_name}.") and passed
     return passed
 
 
@@ -391,7 +427,7 @@ def main() -> None:
     logger.info(f"Report written to {report_path}")
 
     if args.gate:
-        gate_passed = check_thresholds(overall, THRESHOLDS_PATH)
+        gate_passed = check_thresholds(overall, THRESHOLDS_PATH, by_level)
         if not gate_passed:
             logger.error("Quality gate FAILED.")
             sys.exit(1)

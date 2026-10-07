@@ -37,9 +37,23 @@ class TestCacheKeyVersioning:
         service = _make_cache_service()
         assert service._generate_key("rag:cache", "Hiking Boots") == service._generate_key("rag:cache", "  hiking boots  ")
 
+    def test_key_changes_with_limit(self):
+        service = _make_cache_service()
+        assert service._generate_key("rag:cache", "hiking boots", 3) != service._generate_key("rag:cache", "hiking boots", 10)
+        assert service._generate_key("rag:cache", "hiking boots") == service._generate_key("rag:cache", "hiking boots", 5)
+
 
 @pytest.mark.asyncio
 class TestCacheGetSet:
+    async def test_old_key_without_limit_is_not_reused(self):
+        service = _make_cache_service()
+        key = service._generate_key("rag:cache", "test query", 5)
+        old_key = key.replace(":limit:5:", ":")
+        await service.set(old_key, json.dumps({"answer": "old answer", "retrieved_products": []}))
+        result = await service.lookup("test query", limit=5)
+        assert result["cache_hit"] is False
+        assert result["cache_key"] != old_key
+
     async def test_miss_then_hit(self):
         service = _make_cache_service()
         key = service._generate_key("rag:cache", "test query")

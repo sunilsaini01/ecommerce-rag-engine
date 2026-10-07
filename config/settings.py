@@ -12,6 +12,12 @@ class Settings(BaseSettings):
     GROQ_API_KEY: str = ""
     REDIS_HOST: str = "localhost"
     REDIS_PORT: int = Field(default=6379)
+    REDIS_TIMEOUT_SECONDS: float = Field(default=1.0, gt=0, allow_inf_nan=False)
+    QDRANT_TIMEOUT_SECONDS: float = Field(default=3.0, gt=0, allow_inf_nan=False)
+    SEARCH_TIMEOUT_SECONDS: float = Field(default=6.0, gt=0, allow_inf_nan=False)
+    LLM_TIMEOUT_SECONDS: float = Field(default=5.0, gt=0, allow_inf_nan=False)
+    LLM_GENERATION_TIMEOUT_SECONDS: float = Field(default=20.0, gt=0, allow_inf_nan=False)
+    READINESS_TIMEOUT_SECONDS: float = Field(default=2.0, gt=0, allow_inf_nan=False)
 
     # Optional — leave blank to disable auth (local/dev default).
     API_KEY: str = ""

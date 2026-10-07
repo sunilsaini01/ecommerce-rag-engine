@@ -7,6 +7,12 @@ from groq import APIConnectionError
 from src.backend.services.llm import LLMService, GENERATION_FAILED_MESSAGE
 
 
+@pytest.fixture(autouse=True)
+def configured_groq_key(monkeypatch):
+    from config.settings import settings
+    monkeypatch.setattr(settings, "GROQ_API_KEY", "test-key")
+
+
 def _mock_groq_response(content: str) -> MagicMock:
     response = MagicMock()
     response.choices = [MagicMock(message=MagicMock(content=content))]

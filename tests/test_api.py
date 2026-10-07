@@ -105,3 +105,68 @@ class TestRateLimit:
         app.state.cache_service.client.incr.return_value = 2  # already over the limit
         response = client.post("/api/v1/ask", json={"q": "widget", "limit": 5})
         assert response.status_code == 429
+
+
+@pytest.mark.parametrize("endpoint", ["search", "ask"])
+class TestRequestValidation:
+    @pytest.mark.parametrize("filters", [
+        {"min_price": -1}, {"max_price": -1}, {"min_price": 30, "max_price": 20},
+        {"min_stock": -1}, {"min_rating": 6}, {"brand": "   "}, {"category": ""},
+        {"unsupported": "value"},
+    ])
+    def test_rejects_invalid_filters(self, client, endpoint, filters):
+        response = client.post(f"/api/v1/{endpoint}", json={"q": "widget", "filters": filters})
+        assert response.status_code == 422
+        app.state.search_service.search.assert_not_called()
+
+    def test_passes_filters_and_returns_attributes(self, client, endpoint):
+        product = app.state.search_service.search.return_value[0]
+        product.update(brand="Acme", rating=4.5, stock=2, features=["waterproof"],
+                       specifications={"battery_hours": 40}, colors=["blue"], sizes=["M"])
+        filters = {"max_price": 25, "min_stock": 1, "min_rating": 4, "category": "Electronics", "brand": " Acme "}
+        response = client.post(f"/api/v1/{endpoint}", json={"q": "widget", "filters": filters})
+        assert response.status_code == 200
+        forwarded = app.state.search_service.search.call_args.kwargs["filters"]
+        assert forwarded.brand == "Acme" and forwarded.max_price == 25
+        result = response.json()["results" if endpoint == "search" else "retrieved_products"][0]
+        assert result["features"] == ["waterproof"] and result["specifications"] == {"battery_hours": 40}
+        if endpoint == "ask":
+            assert app.state.cache_service.lookup.call_args.kwargs["filters"] == forwarded
+
+    @pytest.mark.parametrize("query", [" ", "\t\n\r", "\u2003\u00a0"])
+    def test_rejects_whitespace_only_query(self, client, endpoint, query):
+        response = client.post(f"/api/v1/{endpoint}", json={"q": query})
+        assert response.status_code == 422
+        assert response.json()["detail"][0]["loc"] == ["body", "q"]
+        app.state.search_service.search.assert_not_called()
+        app.state.cache_service.lookup.assert_not_called()
+        app.state.llm_service.generate_answer.assert_not_called()
+
+    @pytest.mark.parametrize("limit", [-1, 0, 21])
+    def test_rejects_out_of_range_limit(self, client, endpoint, limit):
+        response = client.post(f"/api/v1/{endpoint}", json={"q": "widget", "limit": limit})
+        assert response.status_code == 422
+        assert response.json()["detail"][0]["loc"] == ["body", "limit"]
+        app.state.search_service.search.assert_not_called()
+        app.state.cache_service.lookup.assert_not_called()
+        app.state.llm_service.generate_answer.assert_not_called()
+
+    @pytest.mark.parametrize("limit", [1, 20])
+    def test_accepts_boundary_limits_and_trims_query(self, client, endpoint, limit):
+        response = client.post(f"/api/v1/{endpoint}", json={"q": " \twidget  comparison\n ", "limit": limit})
+        assert response.status_code == 200
+        assert app.state.search_service.search.call_args.kwargs["query"] == "widget  comparison"
+        assert app.state.search_service.search.call_args.kwargs["limit"] == limit
+        if endpoint == "ask":
+            app.state.cache_service.lookup.assert_awaited_once_with("widget  comparison", limit=limit)
+            assert app.state.llm_service.generate_answer.call_args.kwargs["query"] == "widget  comparison"
+
+    @pytest.mark.parametrize("query_length,status", [(200, 200), (201, 422)])
+    def test_query_length_is_checked_after_trimming(self, client, endpoint, query_length, status):
+        response = client.post(f"/api/v1/{endpoint}", json={"q": "  " + "x" * query_length + "  "})
+        assert response.status_code == status
+
+    def test_default_limit_stays_five(self, client, endpoint):
+        response = client.post(f"/api/v1/{endpoint}", json={"q": "widget"})
+        assert response.status_code == 200
+        assert app.state.search_service.search.call_args.kwargs["limit"] == 5

@@ -1,5 +1,6 @@
 from pydantic import BaseModel, Field, field_validator
 from typing import Any, Optional
+import json
 
 # Target category taxonomy for catalog expansion (see catalog_generator.py).
 # Records with a category outside this set are NOT rejected — the original
@@ -134,6 +135,11 @@ class ProductRecord(BaseModel):
             parts.append("Features: " + ", ".join(self.features))
         if self.tags:
             parts.append("Tags: " + ", ".join(self.tags))
+        for label, value in (("Colors", self.colors), ("Sizes", self.sizes)):
+            if value:
+                parts.append(label + ": " + ", ".join(value))
+        if self.specifications:
+            parts.append("Specifications: " + json.dumps(self.specifications, sort_keys=True))
         return " | ".join(parts)
 
     def is_known_category(self) -> bool:
@@ -142,7 +148,7 @@ class ProductRecord(BaseModel):
     def to_payload(self) -> dict[str, Any]:
         """Full Qdrant point payload, including optional attributes. Fields
         left at their default (None / [] / {}) are still included — Qdrant
-        filtering (a possible future step, not implemented yet) needs them
+        filtering uses these attributes when a request specifies constraints;
         present, even if empty, to distinguish 'no data' from 'not indexed'."""
         return {
             "id": self.id,
