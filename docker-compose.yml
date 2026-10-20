@@ -49,7 +49,7 @@ services:
       - ENVIRONMENT=${ENVIRONMENT:-docker}
       - CATALOG_VERSION=${CATALOG_VERSION:-baseline-39}
       - PROMPT_VERSION=${PROMPT_VERSION:-v1}
-      - MODEL_VERSION=${MODEL_VERSION:-llama-3.1-8b-instant}
+      - MODEL_VERSION=${MODEL_VERSION:-openai/gpt-oss-20b}
       - LANGSMITH_TRACING=${LANGSMITH_TRACING:-false}
       - LANGSMITH_API_KEY=${LANGSMITH_API_KEY:-}
       - LANGSMITH_PROJECT=${LANGSMITH_PROJECT:-ecommerce-rag-engine}

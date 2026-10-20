@@ -46,7 +46,7 @@ flowchart TB
 
         LS[["LangSmith\n(opt-in — LANGSMITH_TRACING)\ncache_lookup / query_embedding /\nhybrid_retrieval / context_builder /\nllm_generation spans"]]
 
-        EXT["Groq API — llama-3.1-8b-instant\ntenacity retry"]
+        EXT["Groq API — openai/gpt-oss-20b\ntenacity retry"]
 
         U --> MW
         RAG -.->|"trace, if enabled"| LS
@@ -92,7 +92,7 @@ This system runs dense and sparse retrieval against the same collection and fuse
 | Sparse Embeddings | BM25 via FastEmbed (`Qdrant/bm25`) |
 | Fusion Algorithm | Reciprocal Rank Fusion (RRF, k=60) — native Qdrant query with Python fallback |
 | Backend API | FastAPI (async) + Uvicorn |
-| LLM | Groq `llama-3.1-8b-instant`, retried with `tenacity` |
+| LLM | Groq `openai/gpt-oss-20b`, retried with `tenacity` |
 | Cache / Rate Limiting | Redis 7 (Docker), versioned cache keys |
 | Observability | **LangSmith** (opt-in, `langsmith` SDK — no LangChain migration) |
 | Frontend | Streamlit + pandas |
@@ -174,7 +174,7 @@ Query
       on failure → parallel dense/sparse query_points + Python RRF fallback
   → top-K products
   → context blob
-  → Groq llama-3.1-8b-instant (context-constrained, retries via tenacity)
+  → Groq openai/gpt-oss-20b (context-constrained, retries via tenacity)
   → answer
 ```
 
@@ -407,7 +407,7 @@ These deadlines are configurable using the variables below and in `.env.example`
 | `API_KEY` | *(blank = auth off)* | `X-API-Key` enforcement |
 | `RATE_LIMIT_PER_MINUTE` | `30` | `/ask` per-IP limit |
 | `ENVIRONMENT` | `local` | Tag on every trace/log |
-| `CATALOG_VERSION` / `PROMPT_VERSION` / `MODEL_VERSION` | `baseline-39` / `v1` / `llama-3.1-8b-instant` | Cache key versioning |
+| `CATALOG_VERSION` / `PROMPT_VERSION` / `MODEL_VERSION` | `baseline-39` / `v1` / `openai/gpt-oss-20b` | Cache key versioning |
 | `LANGSMITH_TRACING` | `false` | Master on/off switch |
 | `LANGSMITH_API_KEY` | — | Required if tracing is on |
 | `LANGSMITH_PROJECT` | `ecommerce-rag-engine` | LangSmith project name |

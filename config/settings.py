@@ -33,7 +33,7 @@ class Settings(BaseSettings):
     # answer generated under the old configuration.
     CATALOG_VERSION: str = "baseline-39"
     PROMPT_VERSION: str = "v1"
-    MODEL_VERSION: str = "llama-3.1-8b-instant"
+    MODEL_VERSION: str = "openai/gpt-oss-20b"
 
     # ── LangSmith observability — disabled unless explicitly configured ──
     LANGSMITH_TRACING: bool = False

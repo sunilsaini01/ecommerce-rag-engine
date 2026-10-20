@@ -172,12 +172,14 @@ Return exactly: {{"faithfulness_semantic": <float>, "answer_relevance": <float>,
 
 
 def llm_judge(query: str, context: str, answer: str, groq_client) -> dict | None:
+    from config.settings import settings
+
     try:
         response = groq_client.chat.completions.create(
-            model="llama-3.1-8b-instant",
+            model=settings.MODEL_VERSION,
             messages=[{"role": "user", "content": _JUDGE_PROMPT.format(query=query, context=context, answer=answer)}],
             temperature=0.0,
-            max_tokens=200,
+            max_tokens=1024,
         )
         raw = response.choices[0].message.content.strip()
         raw = raw.removeprefix("```json").removeprefix("```").removesuffix("```").strip()

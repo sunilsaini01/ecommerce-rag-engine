@@ -30,8 +30,8 @@ class LLMService:
             timeout=settings.LLM_TIMEOUT_SECONDS,
             max_retries=0,  # Tenacity owns retries; avoid nested SDK retries.
         ) if settings.GROQ_API_KEY else None
-        self.model_name = "llama-3.1-8b-instant"
-        logger.info("LLMService initialized with Groq llama-3.1-8b-instant.")
+        self.model_name = settings.MODEL_VERSION
+        logger.info(f"LLMService initialized with Groq {self.model_name}.")
 
     def _build_prompt(self, query: str, context: str) -> str:
         return (
@@ -56,7 +56,7 @@ class LLMService:
                 {"role": "user", "content": prompt},
             ],
             temperature=0.2,
-            max_tokens=512,
+            max_tokens=1024,  # gpt-oss spends part of this on hidden reasoning tokens
         )
         usage = response.usage
         return {
